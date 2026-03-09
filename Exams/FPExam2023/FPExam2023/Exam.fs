@@ -59,16 +59,44 @@
     let implies p q = Or(negate p, q)
 
 (* Question 1.3: Bounded universal quantifiers *)
-    let forall _ = failwith "not implemented"
+    
+    // NOT TAIL RECURSIVE!
+    let rec forall (f : 'a -> prop) =
+        function
+        | [] -> TT
+        | x :: xs -> And(f x, forall f xs)
+        
+    (* Tail recursive:
+        let rec forall (f : 'a -> prop) (lst : 'a list) =
+            let rec inner (f : 'a -> prop) (_lst : 'a list) acc = 
+                match _lst with
+                | [] -> acc
+                | x :: xs -> inner f xs (And(acc, f x))
+            inner f lst TT
+    *)
+        
+
 
 (* Question 1.4: Bounded existential quantifiers *)
+    let exists (f : 'a -> prop) (lst : 'a list) = 
+        lst |> List.fold (fun acc x -> Or(acc , f x)) FF
 
-    let exists _ = failwith "not implemented"
-    
+    (*
+    let exists (f : 'a -> prop) (lst : 'a list) = 
+        List.map f lst |> List.map eval |> List.exists id |> fun b -> if b then TT else FF 
+    *)
+
 (* Question 1.5: Bounded unique existential quantifiers *)
 
-    let existsOne _ = failwith "not implemented"
-    
+    let existsOne f lst = failwith "not implemented"
+
+(*    
+    let existsOne f lst = 
+        match lst with
+        | [] -> FF
+        | x :: xs -> And()
+*)
+
 (* 2: Code Comprehension *)
  
     let rec foo xs ys =  
