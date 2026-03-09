@@ -122,18 +122,27 @@
     
     Q: What are the types of functions foo, bar, and baz?
 
-    A: <Your answer goes here>
+    A: foo : 'a list -> 'a list -> 'a list option
+       bar : 'a list -> 'a list -> 'a list
+       baz : string -> string -> string
 
 
     Q: What do the function foo, bar, and baz do.
        Focus on what they do rather than how they do it.
 
-    A: <Your answer goes here>
+    A: foo goes through the two lists if the elements are the same (at each index) and returns Some plus the remainder of 
+       xs if it as long as or longer than ys. In all other cases it returns None.
+       
+       bar returns a list of xs excluding parts that are equal to the whole ys list. Thus it removes ys from xs.
+       
+       baz removes b from a if b is a substring of a and returns the resulting string.
     
     Q: What would be appropriate names for functions 
        foo, bar, and baz?
 
-    A: <Your answer goes here>
+    A: foo : removeSublistAux
+       bar : removeSublist
+       baz : removeSubstring
         
     *)
         
@@ -152,17 +161,27 @@
        what are the types of snippets A, B, and C and what are they -- 
        focus on what they do rather than how they do it.
     
-    A: <Your answer goes here>
+    A: A returns 'a' as a list of chars. 
+       B returns 'b' as a list of chars.
+       C takes a list of chars and returns it as a string. All the snippets keep the order of the string/list.
     
     Q: Explain the use of the `|>`-operator in the baz function.
 
-    A: <Your answer goes here>
+    A: the '|>' operator takes the output from the previous function (in this case the result of calling bar) and pipes 
+       it into the following function as the last parameter (in this case the list for the fold function).
 
     *)
 
 (* Question 2.3: No recursion *) 
 
-    let foo2 _ = failwith "not implemented"
+    let foo2 xs ys = 
+        let l = List.length xs
+        let ly = List.length ys
+        if l < ly
+        then None
+        else
+            let prefix,rest = List.splitAt ly xs
+            if (prefix = ys) then Some rest else None
 
 (* Question 2.4 *)
 
