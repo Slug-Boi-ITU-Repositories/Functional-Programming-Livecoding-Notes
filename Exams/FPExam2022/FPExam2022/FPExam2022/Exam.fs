@@ -175,18 +175,28 @@
 
 (* Question 3.1 *)
 
-    let failDimensions _ = failwith "not implemented"
+
+    let failDimensions m1 m2 = failwith ("Invalid matrix dimensions: m1 rows = " + 
+                                    string(numRows m1) + ", m1 columns = "+ 
+                                    string(numCols m1) + ", m2 rows = " + 
+                                    string(numRows m2) + ", m2 columns = " + 
+                                    string(numCols m2))
 
 (* Question 3.2 *)
 
-    let add _ = failwith "not implemented"
+    let add m1 m2: matrix = if numRows m1 <> numRows m2 || numCols m1 <> numCols m2 then failDimensions m1 m2 else 
+                            init (fun row col -> get m1 row col + get m2 row col) (numRows m1) (numCols m1)
+
 
 (* Question 3.3 *)
     
     let m1 = (init (fun i j -> i * 3 + j + 1) 2 3) 
     let m2 = (init (fun j k -> j * 2 + k + 1) 3 2)
 
-    let dotProduct _ = failwith "not implemented"
+    let dotProduct m1 m2 row col = 
+        let b = numCols m1
+        let lst = [0 .. b-1]
+        List.fold (fun acc j -> (get m1 row j) * (get m2 j col) + acc) 0 lst
     let mult _ = failwith "not implemented"
 
 (* Question 3.4 *)
