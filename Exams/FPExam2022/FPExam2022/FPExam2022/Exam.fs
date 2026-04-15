@@ -209,12 +209,24 @@
 
 (* Question 4.1 *)
 
-    type stack = unit (* replace this entire type with your own *)
-    let emptyStack _ = failwith "not implemented"
+    type stack = {ints : int list} // STACK of int list 
+    
+    //type stack = int list
+
+    let emptyStack () = {ints = List.empty}
 
 (* Question 4.2 *)
 
-    let runStackProgram _ = failwith "not implemented"
+    let runStackProgram (prog : cmd list) : int = 
+        let stack = emptyStack ()
+        let rec compute (prog : cmd list) (stack : stack) = 
+            match prog, stack.ints with
+            | [], a :: xs -> a
+            | Push a :: ptail, _ -> compute ptail {stack with ints = a :: stack.ints}
+            | Add :: ptail, a :: b :: stail -> compute ptail {stack with ints = a+b :: stail}
+            | Mult :: ptail, a :: b :: stail -> compute ptail {stack with ints = a*b :: stail}
+            | _ -> failwith "ill-formed program"
+        compute prog stack
 
 (* Question 4.3 *)
     
@@ -235,8 +247,17 @@
 
     let evalSM (SM f) = f (emptyStack ())
 
-    let push _ = failwith "not implemented"
-    let pop _ = failwith "not implemented"
+    let push (x : int) = 
+        SM (
+            fun stack -> Some ((), {stack with ints = x :: stack.ints})
+        )
+    let pop = 
+        SM (
+            fun stack -> 
+                match stack.ints with
+                | [] -> None
+                | x :: stail -> Some (x, {stack with ints = stail})
+        )
 
 (* Question 4.4 *)
 
@@ -249,7 +270,25 @@
 
     let state = new StateBuilder()
 
-    let runStackProg2 _ = failwith "not implemented"
+    let rec runStackProg2 prog = 
+        state {
+            match prog with
+            | [] -> 
+                return! pop
+            | Push i :: ptail -> 
+                do! push i
+                return! runStackProg2 ptail
+            | Add :: ptail->
+                let! a = pop
+                let! b = pop
+                do! push (a+b)
+                return! runStackProg2 ptail
+            | Mult :: ptail -> 
+                let! a = pop
+                let! b = pop
+                do! push (a*b)
+                return! runStackProg2 ptail
+        }
     
 (* Question 4.5 *)
     
