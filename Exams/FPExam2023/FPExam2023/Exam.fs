@@ -208,11 +208,37 @@
 
 (* Question 3.1: Collatz sequences *)
 
-    let collatz _ = failwith "not implemented"
+    let rec collatz x = 
+        match x with
+        | s when x < 0 -> failwith ("Non positive number: " + string(x))
+        | 1 -> [1]
+        | s when s % 2 = 0 -> s::collatz (s/2) 
+        | s when s % 2 = 1 -> s::collatz (3*s+1) 
+
+    let collatz_rec x = 
+        let rec helper acc x =
+            match x with
+            | s when x <= 0 -> failwith ("Non positive number: " + string(x))
+            | 1 -> 1::acc
+            | s when s % 2 = 0 -> helper (s::acc) (s/2) 
+            | s when s % 2 = 1 -> helper (s::acc) (3*s+1) 
+        helper List.empty x |> List.rev
+
+    let collatz_cont x =
+        let rec helper cont x =
+            match x with
+            | s when x <= 0 -> failwith ("Non positive number: " + string(x))
+            | 1 -> cont [1]
+            | s when s % 2 = 0 -> helper (fun res -> s::res |> cont) (s/2) 
+            | s when s % 2 = 1 -> helper (fun res -> s::res |> cont) (3*s+1) 
+        helper id x
+
 
 (* Question 3.2: Even and odd Collatz sequence elements *)
 
-    let evenOddCollatz _ = failwith "not implemented"
+    let evenOddCollatz x = 
+        let l = collatz x
+        List.fold (fun acc elem -> if elem % 2 = 0 then (fst acc)+1, snd acc else fst acc, (snd acc)+1) (0,0) l
 
 (* Question 3.3: Maximum length Collatz Sequence *)
   
