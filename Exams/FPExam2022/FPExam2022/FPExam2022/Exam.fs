@@ -200,7 +200,15 @@
     let mult _ = failwith "not implemented"
 
 (* Question 3.4 *)
-    let parInit _ = failwith "not implemented"
+    let parInit f rows cols = 
+        let m = init (fun _ _ -> 0) rows cols
+        Array.init (rows*cols) (fun i -> (i/cols, i%cols)) |>
+        Seq.map (fun (r, c) -> async {set m r c (f r c)}) |> 
+        Async.Parallel |>
+        Async.Ignore |>
+        Async.RunSynchronously 
+    
+        m
 
 (* 4: Stack machines *)
 
