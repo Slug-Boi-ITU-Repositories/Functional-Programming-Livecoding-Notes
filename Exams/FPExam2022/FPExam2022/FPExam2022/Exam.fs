@@ -217,12 +217,24 @@
 
 (* Question 4.1 *)
 
-    type stack = unit (* replace this entire type with your own *)
-    let emptyStack _ = failwith "not implemented"
+    type stack = {ints : int list} // STACK of int list 
+    
+    //type stack = int list
+
+    let emptyStack () = {ints = List.empty}
 
 (* Question 4.2 *)
 
-    let runStackProgram _ = failwith "not implemented"
+    let runStackProgram (prog : cmd list) : int = 
+        let stack = emptyStack ()
+        let rec compute (prog : cmd list) (stack : stack) = 
+            match prog, stack.ints with
+            | [], a :: xs -> a
+            | Push a :: ptail, _ -> compute ptail {stack with ints = a :: stack.ints}
+            | Add :: ptail, a :: b :: stail -> compute ptail {stack with ints = a+b :: stail}
+            | Mult :: ptail, a :: b :: stail -> compute ptail {stack with ints = a*b :: stail}
+            | _ -> failwith "ill-formed program"
+        compute prog stack
 
 (* Question 4.3 *)
     
@@ -243,8 +255,17 @@
 
     let evalSM (SM f) = f (emptyStack ())
 
-    let push _ = failwith "not implemented"
-    let pop _ = failwith "not implemented"
+    let push (x : int) = 
+        SM (
+            fun stack -> Some ((), {stack with ints = x :: stack.ints})
+        )
+    let pop = 
+        SM (
+            fun stack -> 
+                match stack.ints with
+                | [] -> None
+                | x :: stail -> Some (x, {stack with ints = stail})
+        )
 
 (* Question 4.4 *)
 
@@ -257,10 +278,63 @@
 
     let state = new StateBuilder()
 
-    let runStackProg2 _ = failwith "not implemented"
-    
+    (*
+    let rec runStackProg2 prog = 
+        state {
+            match prog with
+            | [] -> 
+                return! pop
+            | Push i :: ptail -> 
+                do! push i
+                return! runStackProg2 ptail
+            | Add :: ptail->
+                let! a = pop
+                let! b = pop
+                do! push (a+b)
+                return! runStackProg2 ptail
+            | Mult :: ptail -> 
+                let! a = pop
+                let! b = pop
+                do! push (a*b)
+                return! runStackProg2 ptail
+        }
+    *)
+    let rec runStackProg2 prog = 
+        match prog with
+        | [] ->  pop
+        | Push i :: ptail -> push i >>>= runStackProg2 ptail
+        | Add :: ptail -> pop >>= fun a -> pop >>= fun b -> push (a+b) >>>= runStackProg2 ptail
+        | Mult :: ptail -> pop >>= fun a -> pop >>= fun b -> push (a*b) >>>= runStackProg2 ptail
+
+
 (* Question 4.5 *)
     
     open JParsec.TextParser
 
-    let parseStackProg _ = failwith "not implemented"
+    let ppush = pstring "PUSH"
+    let padd = pstring "ADD"
+    let pmult = pstring "MULT"
+
+
+    let pwhitespaceexcnewline = many (satisfy (fun c -> c <> '\n' && System.Char.IsWhiteSpace c))
+    let pwhitespaceexcnewline1 = many1 (satisfy (fun c -> c <> '\n' && System.Char.IsWhiteSpace c))
+
+    let parsepush = ppush .>> pwhitespaceexcnewline1 >>. pint32 |>> Push
+    let parseadd = padd |>> fun _ -> Add
+    let parsemult = pmult |>> fun _ -> Mult
+
+    let pcmdsep = many1 (satisfy System.Char.IsWhiteSpace) .>> pchar '\n' .>> many1 (satisfy System.Char.IsWhiteSpace)
+
+    let cmdParse = parsepush <|> parsemult <|> parseadd
+
+    
+    let programParse, pref = createParserForwardedToRef<stackProgram>()
+
+    let singlecmdParse = pwhitespaceexcnewline >>. cmdParse .>> pwhitespaceexcnewline |>> fun c -> [c] 
+    let seqcmdParse = cmdParse .>> pcmdsep .>>. programParse |>> fun p -> fst p :: snd p
+
+
+    do pref := choice [singlecmdParse; seqcmdParse]
+
+
+    let parseStackProg = programParse
