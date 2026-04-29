@@ -1,0 +1,2043 @@
+<!DOCTYPE html>
+<!-- saved from url=(0081)https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-stringmodule.html -->
+<html lang="en" data-root="https://fsharp.github.io/fsharp-core-docs/"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="F# Software Foundation; Microsoft; F# Contributors" name="author">
+    <title>String (FSharp.Core) | FSharp.Core</title>
+    <link href="https://fonts.googleapis.com/" rel="preconnect">
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect">
+    <link href="./String (FSharp.Core) _ FSharp.Core_files/css2" rel="stylesheet">
+    <script src="./String (FSharp.Core) _ FSharp.Core_files/iconify-icon.min.js"></script>
+    <link href="https://fsharp.github.io/fsharp-core-docs/img/favicon.ico" rel="icon" sizes="32x32" type="image/png">
+    <link href="./String (FSharp.Core) _ FSharp.Core_files/fsdocs-default.css" rel="stylesheet" type="text/css">
+    <link href="./String (FSharp.Core) _ FSharp.Core_files/fsdocs-theme.css" rel="stylesheet" type="text/css">
+    
+    
+</head>
+<body class="api-docs">
+<header>
+    <div class="start">
+        <div id="menu-toggle">
+            <iconify-icon class="icon closed" height="22" icon="eva:menu-fill" width="22"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><rect width="18" height="2" x="3" y="11" fill="currentColor" rx=".95" ry=".95"></rect><rect width="18" height="2" x="3" y="16" fill="currentColor" rx=".95" ry=".95"></rect><rect width="18" height="2" x="3" y="6" fill="currentColor" rx=".95" ry=".95"></rect></svg></template></iconify-icon>
+            <iconify-icon class="icon open" height="22" icon="mi:close" width="22"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" d="M5.293 5.293a1 1 0 0 1 1.414 0L12 10.586l5.293-5.293a1 1 0 1 1 1.414 1.414L13.414 12l5.293 5.293a1 1 0 0 1-1.414 1.414L12 13.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L10.586 12L5.293 6.707a1 1 0 0 1 0-1.414"></path></svg></template></iconify-icon>
+            <input type="checkbox" name="mobile-menu">
+            <ul class="menu">
+                <li class="nav-header">Links</li>
+                <li class="nav-item"><a class="nav-link" href="https://github.com/dotnet/fsharp/blob/main/License.txt">License</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="https://github.com/dotnet/fsharp/blob/main/release-notes.md">Release
+                    Notes</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://github.com/dotnet/fsharp/">Source
+                    Repository</a></li>
+                
+                <li class="nav-header">
+  Namespaces
+</li>             
+<li class="nav-item">
+  <span>
+    <a class="nav-link" href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-collections.html">
+      FSharp.Collections
+    </a>
+  </span>
+</li>             
+<li class="nav-item">
+  <span>
+    <a class="nav-link" href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-control.html">
+      FSharp.Control
+    </a>
+  </span>
+</li>             
+<li class="nav-item">
+  <span>
+    <a class="nav-link" href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-control-taskbuilderextensions.html">
+      FSharp.Control.TaskBuilderExtensions
+    </a>
+  </span>
+</li>             
+<li class="nav-item">
+  <span>
+    <a class="nav-link" href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core.html">
+      FSharp.Core
+    </a>
+  </span>
+</li>             
+<li class="nav-item">
+  <span>
+    <a class="nav-link" href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-compilerservices.html">
+      FSharp.Core.CompilerServices
+    </a>
+  </span>
+</li>             
+<li class="nav-item">
+  <span>
+    <a class="nav-link" href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-linq.html">
+      FSharp.Linq
+    </a>
+  </span>
+</li>             
+<li class="nav-item">
+  <span>
+    <a class="nav-link" href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-linq-runtimehelpers.html">
+      FSharp.Linq.RuntimeHelpers
+    </a>
+  </span>
+</li>             
+<li class="nav-item">
+  <span>
+    <a class="nav-link" href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-nativeinterop.html">
+      FSharp.NativeInterop
+    </a>
+  </span>
+</li>             
+<li class="nav-item">
+  <span>
+    <a class="nav-link" href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-quotations.html">
+      FSharp.Quotations
+    </a>
+  </span>
+</li>             
+<li class="nav-item">
+  <span>
+    <a class="nav-link" href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-reflection.html">
+      FSharp.Reflection
+    </a>
+  </span>
+</li>
+            </ul>
+        </div>
+        <a href="https://fsharp.org/">
+            <img alt="Header menu logo" src="./String (FSharp.Core) _ FSharp.Core_files/logo.png">
+            <strong>FSharp.Core</strong>
+        </a>
+    </div>
+    <div class="end">
+        <a href="https://github.com/dotnet/fsharp/" target="_blank">
+            <iconify-icon icon="uil:github" width="26" height="26"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.247a10 10 0 0 0-3.162 19.487c.5.088.687-.212.687-.475c0-.237-.012-1.025-.012-1.862c-2.513.462-3.163-.613-3.363-1.175a3.636 3.636 0 0 0-1.025-1.413c-.35-.187-.85-.65-.013-.662a2.001 2.001 0 0 1 1.538 1.025a2.137 2.137 0 0 0 2.912.825a2.104 2.104 0 0 1 .638-1.338c-2.225-.25-4.55-1.112-4.55-4.937a3.892 3.892 0 0 1 1.025-2.688a3.594 3.594 0 0 1 .1-2.65s.837-.262 2.75 1.025a9.427 9.427 0 0 1 5 0c1.912-1.3 2.75-1.025 2.75-1.025a3.593 3.593 0 0 1 .1 2.65a3.869 3.869 0 0 1 1.025 2.688c0 3.837-2.338 4.687-4.562 4.937a2.368 2.368 0 0 1 .674 1.85c0 1.338-.012 2.413-.012 2.75c0 .263.187.575.687.475A10.005 10.005 0 0 0 12 2.247"></path></svg></template></iconify-icon>
+        </a>
+        <iconify-icon id="search-btn" icon="carbon:search" class="search" width="24" height="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32"><path fill="currentColor" d="m29 27.586l-7.552-7.552a11.018 11.018 0 1 0-1.414 1.414L27.586 29ZM4 13a9 9 0 1 1 9 9a9.01 9.01 0 0 1-9-9"></path></svg></template></iconify-icon>
+        <fsdocs-theme-toggle><template shadowrootmode="open"><!---->
+            <iconify-icon width="30" height="30" style="color:var(--header-link-color)" icon="basil:moon-solid"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3.5a8.5 8.5 0 1 0 8.46 9.32a.5.5 0 0 0-.812-.435a5 5 0 1 1-6.137-7.893a.5.5 0 0 0-.225-.895A8.563 8.563 0 0 0 12 3.5"></path></svg></template></iconify-icon>
+        </template></fsdocs-theme-toggle>
+    </div>
+</header>
+<aside id="fsdocs-main-menu">
+    <ul class="menu">
+        <li class="nav-header">Links</li>
+        <li class="nav-item"><a class="nav-link" href="https://github.com/dotnet/fsharp/blob/main/License.txt">License</a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="https://github.com/dotnet/fsharp/blob/main/release-notes.md">Release
+            Notes</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://github.com/dotnet/fsharp/">Source
+            Repository</a></li>
+        
+        <li class="nav-header">
+  Namespaces
+</li>             
+<li class="nav-item">
+  <span>
+    <a class="nav-link" href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-collections.html">
+      FSharp.Collections
+    </a>
+  </span>
+</li>             
+<li class="nav-item">
+  <span>
+    <a class="nav-link" href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-control.html">
+      FSharp.Control
+    </a>
+  </span>
+</li>             
+<li class="nav-item">
+  <span>
+    <a class="nav-link" href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-control-taskbuilderextensions.html">
+      FSharp.Control.TaskBuilderExtensions
+    </a>
+  </span>
+</li>             
+<li class="nav-item">
+  <span>
+    <a class="nav-link" href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core.html">
+      FSharp.Core
+    </a>
+  </span>
+</li>             
+<li class="nav-item">
+  <span>
+    <a class="nav-link" href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-compilerservices.html">
+      FSharp.Core.CompilerServices
+    </a>
+  </span>
+</li>             
+<li class="nav-item">
+  <span>
+    <a class="nav-link" href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-linq.html">
+      FSharp.Linq
+    </a>
+  </span>
+</li>             
+<li class="nav-item">
+  <span>
+    <a class="nav-link" href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-linq-runtimehelpers.html">
+      FSharp.Linq.RuntimeHelpers
+    </a>
+  </span>
+</li>             
+<li class="nav-item">
+  <span>
+    <a class="nav-link" href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-nativeinterop.html">
+      FSharp.NativeInterop
+    </a>
+  </span>
+</li>             
+<li class="nav-item">
+  <span>
+    <a class="nav-link" href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-quotations.html">
+      FSharp.Quotations
+    </a>
+  </span>
+</li>             
+<li class="nav-item">
+  <span>
+    <a class="nav-link" href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-reflection.html">
+      FSharp.Reflection
+    </a>
+  </span>
+</li>
+    </ul>
+</aside>
+<main>
+    <div id="content">
+        <div>
+  <h2>
+    String Module
+  </h2>
+  <dl class="fsdocs-metadata">
+    <dt>
+      Namespace: 
+      <a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core.html">
+        FSharp.Core
+      </a>
+    </dt>
+    <dt>
+      Assembly: FSharp.Core.dll
+    </dt>
+  </dl>
+  <div class="fsdocs-xmldoc">
+    <div>
+      <p class="fsdocs-summary">
+        Functional programming operators for string processing.  Further string operations
+ are available via the member functions on strings and other functionality in
+  <a href="https://learn.microsoft.com/dotnet/api/system.string">System.String</a>
+ and <a href="https://learn.microsoft.com/dotnet/api/system.text.regularexpressions">System.Text.RegularExpressions</a> types.
+ 
+      </p>
+    </div>
+  </div>
+  <div>
+    <h3>
+      Functions and values
+    </h3>
+    <table class="table outer-list fsdocs-member-list">
+      <thead>
+        <tr>
+          <td class="fsdocs-member-list-header">
+            Function or value
+          </td>
+          <td class="fsdocs-member-list-header">
+            Description
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, &#39;990&#39;, 990)" onmouseover="showTip(event, &#39;990&#39;, 990)">
+                <p>
+                  <a id="collect">
+                    </a><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-stringmodule.html#collect">
+                      <code><span>String.collect <span>mapping str</span></span></code>
+                    </a>
+                  
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="990" style="position: absolute; display: none; left: 624px; top: 502px; max-width: 1019px;">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>String.collect <span>mapping str</span></span></code>
+                  <br>
+                  <br>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        mapping
+                      </b>
+                      :
+                      <code><span><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-char.html">char</a> -&gt; <a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></span></code>
+                       - 
+                      The function to produce a string from each character of the input string.
+                    </span>
+                    <br>
+                    <span>
+                      <b>
+                        str
+                      </b>
+                      :
+                      <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                       - 
+                      The input string.
+                    </span>
+                    <br>
+                  </ul>
+                  <br>
+                  <span>
+                    Returns: 
+                    <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                  </span>
+                  The concatenated string.
+                  <br>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <details open="">
+              <summary>
+                <div class="fsdocs-summary">
+                  <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo(&#39;`cref:M:Microsoft.FSharp.Core.StringModule.Collect`&#39;)">
+                    <iconify-icon icon="bi:filetype-md" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2H9v-1h3a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM.706 13.189v2.66H0V11.85h.806l1.14 2.596h.026l1.14-2.596h.8v3.999h-.716v-2.66h-.038l-.946 2.159h-.516l-.952-2.16H.706Zm3.919 2.66V11.85h1.459q.609 0 1.005.234t.589.68q.195.445.196 1.075q0 .634-.196 1.084q-.197.451-.595.689q-.396.237-1 .237H4.626Zm1.353-3.354h-.562v2.707h.562q.279 0 .484-.082a.8.8 0 0 0 .334-.252a1.1 1.1 0 0 0 .196-.422q.067-.252.067-.592a2.1 2.1 0 0 0-.117-.753a.9.9 0 0 0-.354-.454q-.238-.152-.61-.152"></path></svg></template></iconify-icon>
+                  </div>
+                  <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo(&#39;&lt;see cref=\&#39;M:Microsoft.FSharp.Core.StringModule.Collect\&#39;/&gt;&#39;)">
+                    <iconify-icon icon="bi:filetype-xml" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2v-1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM3.527 11.85h-.893l-.823 1.439h-.036L.943 11.85H.012l1.227 1.983L0 15.85h.861l.853-1.415h.035l.85 1.415h.908l-1.254-1.992zm.954 3.999v-2.66h.038l.952 2.159h.516l.946-2.16h.038v2.661h.715V11.85h-.8l-1.14 2.596h-.025L4.58 11.85h-.806v3.999zm4.71-.674h1.696v.674H8.4V11.85h.791z"></path></svg></template></iconify-icon>
+                  </div>
+                  <a href="https://github.com/dotnet/fsharp//tree/master/src/FSharp.Core/string.fs#L122-122" class="fsdocs-source-link" title="Source on GitHub">
+                    <iconify-icon icon="ri:github-fill" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12.001 2c-5.525 0-10 4.475-10 10a9.994 9.994 0 0 0 6.837 9.488c.5.087.688-.213.688-.476c0-.237-.013-1.024-.013-1.862c-2.512.463-3.162-.612-3.362-1.175c-.113-.288-.6-1.175-1.025-1.413c-.35-.187-.85-.65-.013-.662c.788-.013 1.35.725 1.538 1.025c.9 1.512 2.337 1.087 2.912.825c.088-.65.35-1.087.638-1.337c-2.225-.25-4.55-1.113-4.55-4.938c0-1.088.387-1.987 1.025-2.687c-.1-.25-.45-1.275.1-2.65c0 0 .837-.263 2.75 1.024a9.28 9.28 0 0 1 2.5-.337c.85 0 1.7.112 2.5.337c1.913-1.3 2.75-1.024 2.75-1.024c.55 1.375.2 2.4.1 2.65c.637.7 1.025 1.587 1.025 2.687c0 3.838-2.337 4.688-4.562 4.938c.362.312.675.912.675 1.85c0 1.337-.013 2.412-.013 2.75c0 .262.188.574.688.474A10.016 10.016 0 0 0 22 12c0-5.525-4.475-10-10-10"></path></svg></template></iconify-icon>
+                  </a>
+                  <p class="fsdocs-summary">
+                    Builds a new string whose characters are the results of applying the function <code>mapping</code>
+ to each of the characters of the input string and concatenating the resulting
+ strings.
+                  </p>
+                </div>
+              </summary>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    mapping
+                  </span>
+                  :
+                  <code><span><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-char.html">char</a> -&gt; <a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></span></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    The function to produce a string from each character of the input string.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    str
+                  </span>
+                  :
+                  <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    The input string.
+                  </p>
+                </dd>
+              </dl>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                </dt>
+                <dd class="fsdocs-return-docs">
+                  <p>
+                    The concatenated string.
+                  </p>
+                </dd>
+              </dl>
+              <h5 class="fsdocs-example-header">
+                Example
+              </h5>
+              <p class="fsdocs-example" id="collect-1">
+                 The following samples shows how to interspace spaces in a text
+ </p><pre class="fssnip highlighted"><code lang="fsharp"> <span class="k">let</span> <span onmouseout="hideTip(event, &#39;fs1&#39;, 1)" onmouseover="showTip(event, &#39;fs1&#39;, 1)" class="id">input</span> <span class="o">=</span> <span class="s">"Stefan says: Hi!"</span>
+
+ <span onmouseout="hideTip(event, &#39;fs1&#39;, 2)" onmouseover="showTip(event, &#39;fs1&#39;, 2)" class="id">input</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, &#39;fs2&#39;, 3)" onmouseover="showTip(event, &#39;fs2&#39;, 3)" class="m">String</span><span class="pn">.</span><span onmouseout="hideTip(event, &#39;fs3&#39;, 4)" onmouseover="showTip(event, &#39;fs3&#39;, 4)" class="id">collect</span> <span class="pn">(</span><span onmouseout="hideTip(event, &#39;fs4&#39;, 5)" onmouseover="showTip(event, &#39;fs4&#39;, 5)" class="fn">sprintf</span> <span class="s">"</span><span class="pf">%c</span><span class="s"> "</span><span class="pn">)</span>
+</code></pre>
+<div class="fsdocs-tip" id="fs1" style="position: absolute; display: none; left: 742px; top: 619px; max-width: 901px;">val input: string</div>
+<div class="fsdocs-tip" id="fs2">module String
+
+from Microsoft.FSharp.Core</div>
+<div class="fsdocs-tip" id="fs3" style="position: absolute; display: none; left: 886px; top: 271px; max-width: 757px;">val collect: mapping: (char -&gt; string) -&gt; str: string -&gt; string</div>
+<div class="fsdocs-tip" id="fs4">val sprintf: format: Printf.StringFormat&lt;'T&gt; -&gt; 'T</div>
+
+
+ The sample evaluates to <code>"S t e f a n   s a y s :   H i ! "</code>
+              <p></p>
+              <h5 class="fsdocs-example-header">
+                Example
+              </h5>
+              <p class="fsdocs-example" id="collect-2">
+                 How to show the ASCII representation of a very secret text
+ </p><pre class="fssnip highlighted"><code lang="fsharp"> <span class="s">"Secret"</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, &#39;fs1&#39;, 1)" onmouseover="showTip(event, &#39;fs1&#39;, 1)" class="m">String</span><span class="pn">.</span><span onmouseout="hideTip(event, &#39;fs2&#39;, 2)" onmouseover="showTip(event, &#39;fs2&#39;, 2)" class="id">collect</span> <span class="pn">(</span><span class="k">fun</span> <span onmouseout="hideTip(event, &#39;fs3&#39;, 3)" onmouseover="showTip(event, &#39;fs3&#39;, 3)" class="fn">chr</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, &#39;fs4&#39;, 4)" onmouseover="showTip(event, &#39;fs4&#39;, 4)" class="fn">int</span> <span onmouseout="hideTip(event, &#39;fs3&#39;, 5)" onmouseover="showTip(event, &#39;fs3&#39;, 5)" class="fn">chr</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, &#39;fs5&#39;, 6)" onmouseover="showTip(event, &#39;fs5&#39;, 6)" class="fn">sprintf</span> <span class="s">"</span><span class="pf">%d</span><span class="s"> "</span><span class="pn">)</span>
+</code></pre>
+<div class="fsdocs-tip" id="fs1">module String
+
+from Microsoft.FSharp.Core</div>
+<div class="fsdocs-tip" id="fs2">val collect: mapping: (char -&gt; string) -&gt; str: string -&gt; string</div>
+<div class="fsdocs-tip" id="fs3">val chr: char</div>
+<div class="fsdocs-tip" id="fs4">Multiple items<br>val int: value: 'T -&gt; int (requires member op_Explicit)<br><br>--------------------<br>type int = int32<br><br>--------------------<br>type int&lt;'Measure&gt; =
+  int</div>
+<div class="fsdocs-tip" id="fs5">val sprintf: format: Printf.StringFormat&lt;'T&gt; -&gt; 'T</div>
+
+
+ The sample evaluates to <code>"83 101 99 114 101 116 "</code>
+              <p></p>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, &#39;991&#39;, 991)" onmouseover="showTip(event, &#39;991&#39;, 991)">
+                <p>
+                  <a id="concat">
+                    </a><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-stringmodule.html#concat">
+                      <code><span>String.concat <span>sep strings</span></span></code>
+                    </a>
+                  
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="991">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>String.concat <span>sep strings</span></span></code>
+                  <br>
+                  <br>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        sep
+                      </b>
+                      :
+                      <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                       - 
+                      The separator string to be inserted between the strings
+ of the input sequence.
+                    </span>
+                    <br>
+                    <span>
+                      <b>
+                        strings
+                      </b>
+                      :
+                      <code><span><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a> <a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-collections-seq-1.html">seq</a></span></code>
+                       - 
+                      The sequence of strings to be concatenated.
+                    </span>
+                    <br>
+                  </ul>
+                  <br>
+                  <span>
+                    Returns: 
+                    <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                  </span>
+                  A new string consisting of the concatenated strings separated by
+ the separation string.
+                  <br>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <details open="">
+              <summary>
+                <div class="fsdocs-summary">
+                  <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo(&#39;`cref:M:Microsoft.FSharp.Core.StringModule.Concat`&#39;)">
+                    <iconify-icon icon="bi:filetype-md" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2H9v-1h3a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM.706 13.189v2.66H0V11.85h.806l1.14 2.596h.026l1.14-2.596h.8v3.999h-.716v-2.66h-.038l-.946 2.159h-.516l-.952-2.16H.706Zm3.919 2.66V11.85h1.459q.609 0 1.005.234t.589.68q.195.445.196 1.075q0 .634-.196 1.084q-.197.451-.595.689q-.396.237-1 .237H4.626Zm1.353-3.354h-.562v2.707h.562q.279 0 .484-.082a.8.8 0 0 0 .334-.252a1.1 1.1 0 0 0 .196-.422q.067-.252.067-.592a2.1 2.1 0 0 0-.117-.753a.9.9 0 0 0-.354-.454q-.238-.152-.61-.152"></path></svg></template></iconify-icon>
+                  </div>
+                  <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo(&#39;&lt;see cref=\&#39;M:Microsoft.FSharp.Core.StringModule.Concat\&#39;/&gt;&#39;)">
+                    <iconify-icon icon="bi:filetype-xml" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2v-1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM3.527 11.85h-.893l-.823 1.439h-.036L.943 11.85H.012l1.227 1.983L0 15.85h.861l.853-1.415h.035l.85 1.415h.908l-1.254-1.992zm.954 3.999v-2.66h.038l.952 2.159h.516l.946-2.16h.038v2.661h.715V11.85h-.8l-1.14 2.596h-.025L4.58 11.85h-.806v3.999zm4.71-.674h1.696v.674H8.4V11.85h.791z"></path></svg></template></iconify-icon>
+                  </div>
+                  <a href="https://github.com/dotnet/fsharp//tree/master/src/FSharp.Core/string.fs#L27-27" class="fsdocs-source-link" title="Source on GitHub">
+                    <iconify-icon icon="ri:github-fill" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12.001 2c-5.525 0-10 4.475-10 10a9.994 9.994 0 0 0 6.837 9.488c.5.087.688-.213.688-.476c0-.237-.013-1.024-.013-1.862c-2.512.463-3.162-.612-3.362-1.175c-.113-.288-.6-1.175-1.025-1.413c-.35-.187-.85-.65-.013-.662c.788-.013 1.35.725 1.538 1.025c.9 1.512 2.337 1.087 2.912.825c.088-.65.35-1.087.638-1.337c-2.225-.25-4.55-1.113-4.55-4.938c0-1.088.387-1.987 1.025-2.687c-.1-.25-.45-1.275.1-2.65c0 0 .837-.263 2.75 1.024a9.28 9.28 0 0 1 2.5-.337c.85 0 1.7.112 2.5.337c1.913-1.3 2.75-1.024 2.75-1.024c.55 1.375.2 2.4.1 2.65c.637.7 1.025 1.587 1.025 2.687c0 3.838-2.337 4.688-4.562 4.938c.362.312.675.912.675 1.85c0 1.337-.013 2.412-.013 2.75c0 .262.188.574.688.474A10.016 10.016 0 0 0 22 12c0-5.525-4.475-10-10-10"></path></svg></template></iconify-icon>
+                  </a>
+                  <p class="fsdocs-summary">
+                    Returns a new string made by concatenating the given strings
+ with separator <code>sep</code>, that is <code>a1 + sep + ... + sep + aN</code>.
+                  </p>
+                </div>
+              </summary>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    sep
+                  </span>
+                  :
+                  <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    The separator string to be inserted between the strings
+ of the input sequence.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    strings
+                  </span>
+                  :
+                  <code><span><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a> <a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-collections-seq-1.html">seq</a></span></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    The sequence of strings to be concatenated.
+                  </p>
+                </dd>
+              </dl>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                </dt>
+                <dd class="fsdocs-return-docs">
+                  <p>
+                    A new string consisting of the concatenated strings separated by
+ the separation string.
+                  </p>
+                </dd>
+              </dl>
+              <table class="fsdocs-exception-list">
+                <tbody><tr>
+                  <td>
+                    <a href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">
+                      ArgumentNullException
+                    </a>
+                  </td>
+                  <td>
+                    Thrown when <code>strings</code> is null.
+                  </td>
+                </tr>
+              </tbody></table>
+              <h5 class="fsdocs-example-header">
+                Example
+              </h5>
+              <p class="fsdocs-example" id="concat-1">
+                </p><pre class="fssnip highlighted"><code lang="fsharp"> <span class="k">let</span> <span onmouseout="hideTip(event, &#39;fs1&#39;, 1)" onmouseover="showTip(event, &#39;fs1&#39;, 1)" class="id">input1</span> <span class="o">=</span> <span class="pn">[</span><span class="s">"Stefan"</span><span class="pn">;</span> <span class="s">"says:"</span><span class="pn">;</span> <span class="s">"Hello"</span><span class="pn">;</span> <span class="s">"there!"</span><span class="pn">]</span>
+
+ <span onmouseout="hideTip(event, &#39;fs1&#39;, 2)" onmouseover="showTip(event, &#39;fs1&#39;, 2)" class="id">input1</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, &#39;fs2&#39;, 3)" onmouseover="showTip(event, &#39;fs2&#39;, 3)" class="m">String</span><span class="pn">.</span><span onmouseout="hideTip(event, &#39;fs3&#39;, 4)" onmouseover="showTip(event, &#39;fs3&#39;, 4)" class="id">concat</span> <span class="s">" "</span>  <span class="c">// evaluates "Stefan says: Hello there!"</span>
+
+ <span class="k">let</span> <span onmouseout="hideTip(event, &#39;fs4&#39;, 5)" onmouseover="showTip(event, &#39;fs4&#39;, 5)" class="id">input2</span> <span class="o">=</span> <span class="pn">[</span><span class="n">0..</span><span class="n">9</span><span class="pn">]</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, &#39;fs5&#39;, 6)" onmouseover="showTip(event, &#39;fs5&#39;, 6)" class="m">List</span><span class="pn">.</span><span onmouseout="hideTip(event, &#39;fs6&#39;, 7)" onmouseover="showTip(event, &#39;fs6&#39;, 7)" class="id">map</span> <span onmouseout="hideTip(event, &#39;fs7&#39;, 8)" onmouseover="showTip(event, &#39;fs7&#39;, 8)" class="fn">string</span>
+
+ <span onmouseout="hideTip(event, &#39;fs4&#39;, 9)" onmouseover="showTip(event, &#39;fs4&#39;, 9)" class="id">input2</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, &#39;fs2&#39;, 10)" onmouseover="showTip(event, &#39;fs2&#39;, 10)" class="m">String</span><span class="pn">.</span><span onmouseout="hideTip(event, &#39;fs3&#39;, 11)" onmouseover="showTip(event, &#39;fs3&#39;, 11)" class="id">concat</span> <span class="s">""</span>    <span class="c">// evaluates "0123456789"</span>
+ <span onmouseout="hideTip(event, &#39;fs4&#39;, 12)" onmouseover="showTip(event, &#39;fs4&#39;, 12)" class="id">input2</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, &#39;fs2&#39;, 13)" onmouseover="showTip(event, &#39;fs2&#39;, 13)" class="m">String</span><span class="pn">.</span><span onmouseout="hideTip(event, &#39;fs3&#39;, 14)" onmouseover="showTip(event, &#39;fs3&#39;, 14)" class="id">concat</span> <span class="s">", "</span>  <span class="c">// evaluates "0, 1, 2, 3, 4, 5, 6, 7, 8, 9"</span>
+
+ <span class="k">let</span> <span onmouseout="hideTip(event, &#39;fs8&#39;, 15)" onmouseover="showTip(event, &#39;fs8&#39;, 15)" class="id">input3</span> <span class="o">=</span> <span class="pn">[</span><span class="s">"No comma"</span><span class="pn">]</span>
+
+ <span onmouseout="hideTip(event, &#39;fs8&#39;, 16)" onmouseover="showTip(event, &#39;fs8&#39;, 16)" class="id">input3</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, &#39;fs2&#39;, 17)" onmouseover="showTip(event, &#39;fs2&#39;, 17)" class="m">String</span><span class="pn">.</span><span onmouseout="hideTip(event, &#39;fs3&#39;, 18)" onmouseover="showTip(event, &#39;fs3&#39;, 18)" class="id">concat</span> <span class="s">","</span>   <span class="c">// evaluates "No comma"</span>
+</code></pre>
+<div class="fsdocs-tip" id="fs1">val input1: string list</div>
+<div class="fsdocs-tip" id="fs2">module String
+
+from Microsoft.FSharp.Core</div>
+<div class="fsdocs-tip" id="fs3">val concat: sep: string -&gt; strings: string seq -&gt; string</div>
+<div class="fsdocs-tip" id="fs4">val input2: string list</div>
+<div class="fsdocs-tip" id="fs5">Multiple items<br>module List
+
+from Microsoft.FSharp.Collections<br><br>--------------------<br>type List&lt;'T&gt; =
+  | op_Nil
+  | op_ColonColon of Head: 'T * Tail: 'T list
+  interface IReadOnlyList&lt;'T&gt;
+  interface IReadOnlyCollection&lt;'T&gt;
+  interface IEnumerable
+  interface IEnumerable&lt;'T&gt;
+  member GetReverseIndex: rank: int * offset: int -&gt; int
+  member GetSlice: startIndex: int option * endIndex: int option -&gt; 'T list
+  static member Cons: head: 'T * tail: 'T list -&gt; 'T list
+  member Head: 'T
+  member IsEmpty: bool
+  member Item: index: int -&gt; 'T with get
+  ...</div>
+<div class="fsdocs-tip" id="fs6">val map: mapping: ('T -&gt; 'U) -&gt; list: 'T list -&gt; 'U list</div>
+<div class="fsdocs-tip" id="fs7">Multiple items<br>val string: value: 'T -&gt; string<br><br>--------------------<br>type string = System.String</div>
+<div class="fsdocs-tip" id="fs8">val input3: string list</div>
+
+
+              <p></p>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, &#39;992&#39;, 992)" onmouseover="showTip(event, &#39;992&#39;, 992)">
+                <p>
+                  <a id="exists">
+                    </a><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-stringmodule.html#exists">
+                      <code><span>String.exists <span>predicate str</span></span></code>
+                    </a>
+                  
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="992">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>String.exists <span>predicate str</span></span></code>
+                  <br>
+                  <br>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        predicate
+                      </b>
+                      :
+                      <code><span><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-char.html">char</a> -&gt; <a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-bool.html">bool</a></span></code>
+                       - 
+                      The function to test each character of the string.
+                    </span>
+                    <br>
+                    <span>
+                      <b>
+                        str
+                      </b>
+                      :
+                      <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                       - 
+                      The input string.
+                    </span>
+                    <br>
+                  </ul>
+                  <br>
+                  <span>
+                    Returns: 
+                    <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-bool.html">bool</a></code>
+                  </span>
+                  True if any character returns true for the predicate and false otherwise.
+                  <br>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <details open="">
+              <summary>
+                <div class="fsdocs-summary">
+                  <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo(&#39;`cref:M:Microsoft.FSharp.Core.StringModule.Exists`&#39;)">
+                    <iconify-icon icon="bi:filetype-md" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2H9v-1h3a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM.706 13.189v2.66H0V11.85h.806l1.14 2.596h.026l1.14-2.596h.8v3.999h-.716v-2.66h-.038l-.946 2.159h-.516l-.952-2.16H.706Zm3.919 2.66V11.85h1.459q.609 0 1.005.234t.589.68q.195.445.196 1.075q0 .634-.196 1.084q-.197.451-.595.689q-.396.237-1 .237H4.626Zm1.353-3.354h-.562v2.707h.562q.279 0 .484-.082a.8.8 0 0 0 .334-.252a1.1 1.1 0 0 0 .196-.422q.067-.252.067-.592a2.1 2.1 0 0 0-.117-.753a.9.9 0 0 0-.354-.454q-.238-.152-.61-.152"></path></svg></template></iconify-icon>
+                  </div>
+                  <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo(&#39;&lt;see cref=\&#39;M:Microsoft.FSharp.Core.StringModule.Exists\&#39;/&gt;&#39;)">
+                    <iconify-icon icon="bi:filetype-xml" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2v-1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM3.527 11.85h-.893l-.823 1.439h-.036L.943 11.85H.012l1.227 1.983L0 15.85h.861l.853-1.415h.035l.85 1.415h.908l-1.254-1.992zm.954 3.999v-2.66h.038l.952 2.159h.516l.946-2.16h.038v2.661h.715V11.85h-.8l-1.14 2.596h-.025L4.58 11.85h-.806v3.999zm4.71-.674h1.696v.674H8.4V11.85h.791z"></path></svg></template></iconify-icon>
+                  </div>
+                  <a href="https://github.com/dotnet/fsharp//tree/master/src/FSharp.Core/string.fs#L194-194" class="fsdocs-source-link" title="Source on GitHub">
+                    <iconify-icon icon="ri:github-fill" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12.001 2c-5.525 0-10 4.475-10 10a9.994 9.994 0 0 0 6.837 9.488c.5.087.688-.213.688-.476c0-.237-.013-1.024-.013-1.862c-2.512.463-3.162-.612-3.362-1.175c-.113-.288-.6-1.175-1.025-1.413c-.35-.187-.85-.65-.013-.662c.788-.013 1.35.725 1.538 1.025c.9 1.512 2.337 1.087 2.912.825c.088-.65.35-1.087.638-1.337c-2.225-.25-4.55-1.113-4.55-4.938c0-1.088.387-1.987 1.025-2.687c-.1-.25-.45-1.275.1-2.65c0 0 .837-.263 2.75 1.024a9.28 9.28 0 0 1 2.5-.337c.85 0 1.7.112 2.5.337c1.913-1.3 2.75-1.024 2.75-1.024c.55 1.375.2 2.4.1 2.65c.637.7 1.025 1.587 1.025 2.687c0 3.838-2.337 4.688-4.562 4.938c.362.312.675.912.675 1.85c0 1.337-.013 2.412-.013 2.75c0 .262.188.574.688.474A10.016 10.016 0 0 0 22 12c0-5.525-4.475-10-10-10"></path></svg></template></iconify-icon>
+                  </a>
+                  <p class="fsdocs-summary">
+                    Tests if any character of the string satisfies the given predicate.
+                  </p>
+                </div>
+              </summary>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    predicate
+                  </span>
+                  :
+                  <code><span><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-char.html">char</a> -&gt; <a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-bool.html">bool</a></span></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    The function to test each character of the string.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    str
+                  </span>
+                  :
+                  <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    The input string.
+                  </p>
+                </dd>
+              </dl>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-bool.html">bool</a></code>
+                </dt>
+                <dd class="fsdocs-return-docs">
+                  <p>
+                    True if any character returns true for the predicate and false otherwise.
+                  </p>
+                </dd>
+              </dl>
+              <h5 class="fsdocs-example-header">
+                Example
+              </h5>
+              <p class="fsdocs-example" id="exists-1">
+                 Looking for uppercase characters
+ </p><pre class="fssnip highlighted"><code lang="fsharp"> <span class="k">open</span> <span onmouseout="hideTip(event, &#39;fs1&#39;, 1)" onmouseover="showTip(event, &#39;fs1&#39;, 1)" class="id">System</span>
+
+ <span class="s">"Yoda"</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, &#39;fs2&#39;, 2)" onmouseover="showTip(event, &#39;fs2&#39;, 2)" class="m">String</span><span class="pn">.</span><span onmouseout="hideTip(event, &#39;fs3&#39;, 3)" onmouseover="showTip(event, &#39;fs3&#39;, 3)" class="id">exists</span> <span onmouseout="hideTip(event, &#39;fs4&#39;, 4)" onmouseover="showTip(event, &#39;fs4&#39;, 4)" class="vt">Char</span><span class="pn">.</span><span onmouseout="hideTip(event, &#39;fs5&#39;, 5)" onmouseover="showTip(event, &#39;fs5&#39;, 5)" class="id">IsUpper</span>  <span class="c">// evaluates true</span>
+
+ <span class="s">"nope"</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, &#39;fs2&#39;, 6)" onmouseover="showTip(event, &#39;fs2&#39;, 6)" class="m">String</span><span class="pn">.</span><span onmouseout="hideTip(event, &#39;fs3&#39;, 7)" onmouseover="showTip(event, &#39;fs3&#39;, 7)" class="id">exists</span> <span onmouseout="hideTip(event, &#39;fs4&#39;, 8)" onmouseover="showTip(event, &#39;fs4&#39;, 8)" class="vt">Char</span><span class="pn">.</span><span onmouseout="hideTip(event, &#39;fs5&#39;, 9)" onmouseover="showTip(event, &#39;fs5&#39;, 9)" class="id">IsUpper</span>  <span class="c">// evaluates false</span>
+</code></pre>
+<div class="fsdocs-tip" id="fs1">namespace System</div>
+<div class="fsdocs-tip" id="fs2">Multiple items<br>type String =
+  interface IEnumerable&lt;char&gt;
+  interface IEnumerable
+  interface ICloneable
+  interface IComparable
+  interface IComparable&lt;string&gt;
+  interface IConvertible
+  interface IEquatable&lt;string&gt;
+  interface IParsable&lt;string&gt;
+  interface ISpanParsable&lt;string&gt;
+  new: value: nativeptr&lt;char&gt; -&gt; unit + 8 overloads
+  ...<br><em>&lt;summary&gt;Represents text as a sequence of UTF-16 code units.&lt;/summary&gt;</em><br><br>--------------------<br>String(value: nativeptr&lt;char&gt;) : String<br>String(value: char array) : String<br>String(value: ReadOnlySpan&lt;char&gt;) : String<br>String(value: nativeptr&lt;sbyte&gt;) : String<br>String(c: char, count: int) : String<br>String(value: nativeptr&lt;char&gt;, startIndex: int, length: int) : String<br>String(value: char array, startIndex: int, length: int) : String<br>String(value: nativeptr&lt;sbyte&gt;, startIndex: int, length: int) : String<br>String(value: nativeptr&lt;sbyte&gt;, startIndex: int, length: int, enc: Text.Encoding) : String</div>
+<div class="fsdocs-tip" id="fs3">val exists: predicate: (char -&gt; bool) -&gt; str: string -&gt; bool</div>
+<div class="fsdocs-tip" id="fs4">[&lt;Struct&gt;]
+type Char =
+  member CompareTo: value: char -&gt; int + 1 overload
+  member Equals: obj: char -&gt; bool + 1 overload
+  member GetHashCode: unit -&gt; int
+  member GetTypeCode: unit -&gt; TypeCode
+  member ToString: unit -&gt; string + 2 overloads
+  static member ConvertFromUtf32: utf32: int -&gt; string
+  static member ConvertToUtf32: highSurrogate: char * lowSurrogate: char -&gt; int + 1 overload
+  static member GetNumericValue: c: char -&gt; float + 1 overload
+  static member GetUnicodeCategory: c: char -&gt; UnicodeCategory + 1 overload
+  static member IsAscii: c: char -&gt; bool
+  ...<br><em>&lt;summary&gt;Represents a character as a UTF-16 code unit.&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs5">Char.IsUpper(c: char) : bool<br>Char.IsUpper(s: string, index: int) : bool</div>
+
+
+              <p></p>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, &#39;993&#39;, 993)" onmouseover="showTip(event, &#39;993&#39;, 993)">
+                <p>
+                  <a id="filter">
+                    </a><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-stringmodule.html#filter">
+                      <code><span>String.filter <span>predicate str</span></span></code>
+                    </a>
+                  
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="993">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>String.filter <span>predicate str</span></span></code>
+                  <br>
+                  <br>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        predicate
+                      </b>
+                      :
+                      <code><span><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-char.html">char</a> -&gt; <a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-bool.html">bool</a></span></code>
+                       - 
+                      A function to test whether each character in the input sequence should be included in the output string.
+                    </span>
+                    <br>
+                    <span>
+                      <b>
+                        str
+                      </b>
+                      :
+                      <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                       - 
+                      The input string.
+                    </span>
+                    <br>
+                  </ul>
+                  <br>
+                  <span>
+                    Returns: 
+                    <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                  </span>
+                  The resulting string.
+                  <br>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <details open="">
+              <summary>
+                <div class="fsdocs-summary">
+                  <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo(&#39;`cref:M:Microsoft.FSharp.Core.StringModule.Filter`&#39;)">
+                    <iconify-icon icon="bi:filetype-md" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2H9v-1h3a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM.706 13.189v2.66H0V11.85h.806l1.14 2.596h.026l1.14-2.596h.8v3.999h-.716v-2.66h-.038l-.946 2.159h-.516l-.952-2.16H.706Zm3.919 2.66V11.85h1.459q.609 0 1.005.234t.589.68q.195.445.196 1.075q0 .634-.196 1.084q-.197.451-.595.689q-.396.237-1 .237H4.626Zm1.353-3.354h-.562v2.707h.562q.279 0 .484-.082a.8.8 0 0 0 .334-.252a1.1 1.1 0 0 0 .196-.422q.067-.252.067-.592a2.1 2.1 0 0 0-.117-.753a.9.9 0 0 0-.354-.454q-.238-.152-.61-.152"></path></svg></template></iconify-icon>
+                  </div>
+                  <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo(&#39;&lt;see cref=\&#39;M:Microsoft.FSharp.Core.StringModule.Filter\&#39;/&gt;&#39;)">
+                    <iconify-icon icon="bi:filetype-xml" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2v-1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM3.527 11.85h-.893l-.823 1.439h-.036L.943 11.85H.012l1.227 1.983L0 15.85h.861l.853-1.415h.035l.85 1.415h.908l-1.254-1.992zm.954 3.999v-2.66h.038l.952 2.159h.516l.946-2.16h.038v2.661h.715V11.85h-.8l-1.14 2.596h-.025L4.58 11.85h-.806v3.999zm4.71-.674h1.696v.674H8.4V11.85h.791z"></path></svg></template></iconify-icon>
+                  </div>
+                  <a href="https://github.com/dotnet/fsharp//tree/master/src/FSharp.Core/string.fs#L90-90" class="fsdocs-source-link" title="Source on GitHub">
+                    <iconify-icon icon="ri:github-fill" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12.001 2c-5.525 0-10 4.475-10 10a9.994 9.994 0 0 0 6.837 9.488c.5.087.688-.213.688-.476c0-.237-.013-1.024-.013-1.862c-2.512.463-3.162-.612-3.362-1.175c-.113-.288-.6-1.175-1.025-1.413c-.35-.187-.85-.65-.013-.662c.788-.013 1.35.725 1.538 1.025c.9 1.512 2.337 1.087 2.912.825c.088-.65.35-1.087.638-1.337c-2.225-.25-4.55-1.113-4.55-4.938c0-1.088.387-1.987 1.025-2.687c-.1-.25-.45-1.275.1-2.65c0 0 .837-.263 2.75 1.024a9.28 9.28 0 0 1 2.5-.337c.85 0 1.7.112 2.5.337c1.913-1.3 2.75-1.024 2.75-1.024c.55 1.375.2 2.4.1 2.65c.637.7 1.025 1.587 1.025 2.687c0 3.838-2.337 4.688-4.562 4.938c.362.312.675.912.675 1.85c0 1.337-.013 2.412-.013 2.75c0 .262.188.574.688.474A10.016 10.016 0 0 0 22 12c0-5.525-4.475-10-10-10"></path></svg></template></iconify-icon>
+                  </a>
+                  <p class="fsdocs-summary">
+                    Builds a new string containing only the characters of the input string
+ for which the given predicate returns "true".
+                  </p>
+                </div>
+              </summary>
+              <p class="fsdocs-remarks">
+                Returns an empty string if the input string is null
+              </p>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    predicate
+                  </span>
+                  :
+                  <code><span><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-char.html">char</a> -&gt; <a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-bool.html">bool</a></span></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    A function to test whether each character in the input sequence should be included in the output string.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    str
+                  </span>
+                  :
+                  <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    The input string.
+                  </p>
+                </dd>
+              </dl>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                </dt>
+                <dd class="fsdocs-return-docs">
+                  <p>
+                    The resulting string.
+                  </p>
+                </dd>
+              </dl>
+              <h5 class="fsdocs-example-header">
+                Example
+              </h5>
+              <p class="fsdocs-example" id="filter-1">
+                 Filtering out just alphanumeric characters
+ </p><pre class="fssnip highlighted"><code lang="fsharp"> <span class="k">open</span> <span onmouseout="hideTip(event, &#39;fs1&#39;, 1)" onmouseover="showTip(event, &#39;fs1&#39;, 1)" class="id">System</span>
+
+ <span class="k">let</span> <span onmouseout="hideTip(event, &#39;fs2&#39;, 2)" onmouseover="showTip(event, &#39;fs2&#39;, 2)" class="id">input</span> <span class="o">=</span> <span class="s">"0 1 2 3 4 5 6 7 8 9 a A m M"</span>
+
+ <span onmouseout="hideTip(event, &#39;fs2&#39;, 3)" onmouseover="showTip(event, &#39;fs2&#39;, 3)" class="id">input</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, &#39;fs3&#39;, 4)" onmouseover="showTip(event, &#39;fs3&#39;, 4)" class="m">String</span><span class="pn">.</span><span onmouseout="hideTip(event, &#39;fs4&#39;, 5)" onmouseover="showTip(event, &#39;fs4&#39;, 5)" class="id">filter</span> <span onmouseout="hideTip(event, &#39;fs5&#39;, 6)" onmouseover="showTip(event, &#39;fs5&#39;, 6)" class="rt">Uri</span><span class="pn">.</span><span onmouseout="hideTip(event, &#39;fs6&#39;, 7)" onmouseover="showTip(event, &#39;fs6&#39;, 7)" class="id">IsHexDigit</span>  <span class="c">// evaluates "123456789aA"</span>
+</code></pre>
+<div class="fsdocs-tip" id="fs1">namespace System</div>
+<div class="fsdocs-tip" id="fs2">val input: string</div>
+<div class="fsdocs-tip" id="fs3">Multiple items<br>type String =
+  interface IEnumerable&lt;char&gt;
+  interface IEnumerable
+  interface ICloneable
+  interface IComparable
+  interface IComparable&lt;string&gt;
+  interface IConvertible
+  interface IEquatable&lt;string&gt;
+  interface IParsable&lt;string&gt;
+  interface ISpanParsable&lt;string&gt;
+  new: value: nativeptr&lt;char&gt; -&gt; unit + 8 overloads
+  ...<br><em>&lt;summary&gt;Represents text as a sequence of UTF-16 code units.&lt;/summary&gt;</em><br><br>--------------------<br>String(value: nativeptr&lt;char&gt;) : String<br>String(value: char array) : String<br>String(value: ReadOnlySpan&lt;char&gt;) : String<br>String(value: nativeptr&lt;sbyte&gt;) : String<br>String(c: char, count: int) : String<br>String(value: nativeptr&lt;char&gt;, startIndex: int, length: int) : String<br>String(value: char array, startIndex: int, length: int) : String<br>String(value: nativeptr&lt;sbyte&gt;, startIndex: int, length: int) : String<br>String(value: nativeptr&lt;sbyte&gt;, startIndex: int, length: int, enc: Text.Encoding) : String</div>
+<div class="fsdocs-tip" id="fs4">val filter: predicate: (char -&gt; bool) -&gt; str: string -&gt; string</div>
+<div class="fsdocs-tip" id="fs5">Multiple items<br>type Uri =
+  interface IFormattable
+  interface ISpanFormattable
+  interface ISerializable
+  new: uriString: string -&gt; unit + 6 overloads
+  member Equals: comparand: obj -&gt; bool
+  member GetComponents: components: UriComponents * format: UriFormat -&gt; string
+  member GetHashCode: unit -&gt; int
+  member GetLeftPart: part: UriPartial -&gt; string
+  member IsBaseOf: uri: Uri -&gt; bool
+  member IsWellFormedOriginalString: unit -&gt; bool
+  ...<br><em>&lt;summary&gt;Provides an object representation of a uniform resource identifier (URI) and easy access to the parts of the URI.&lt;/summary&gt;</em><br><br>--------------------<br>Uri(uriString: string) : Uri<br>Uri(uriString: string, creationOptions: inref&lt;UriCreationOptions&gt;) : Uri<br>Uri(uriString: string, uriKind: UriKind) : Uri<br>Uri(baseUri: Uri, relativeUri: string) : Uri<br>Uri(baseUri: Uri, relativeUri: Uri) : Uri</div>
+<div class="fsdocs-tip" id="fs6">Uri.IsHexDigit(character: char) : bool</div>
+
+
+              <p></p>
+              <h5 class="fsdocs-example-header">
+                Example
+              </h5>
+              <p class="fsdocs-example" id="filter-2">
+                 Filtering out just digits
+ </p><pre class="fssnip highlighted"><code lang="fsharp"> <span class="k">open</span> <span onmouseout="hideTip(event, &#39;fs1&#39;, 1)" onmouseover="showTip(event, &#39;fs1&#39;, 1)" class="id">System</span>
+
+ <span class="s">"hello"</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, &#39;fs2&#39;, 2)" onmouseover="showTip(event, &#39;fs2&#39;, 2)" class="m">String</span><span class="pn">.</span><span onmouseout="hideTip(event, &#39;fs3&#39;, 3)" onmouseover="showTip(event, &#39;fs3&#39;, 3)" class="id">filter</span> <span onmouseout="hideTip(event, &#39;fs4&#39;, 4)" onmouseover="showTip(event, &#39;fs4&#39;, 4)" class="vt">Char</span><span class="pn">.</span><span onmouseout="hideTip(event, &#39;fs5&#39;, 5)" onmouseover="showTip(event, &#39;fs5&#39;, 5)" class="id">IsDigit</span>  <span class="c">// evaluates ""</span>
+</code></pre>
+<div class="fsdocs-tip" id="fs1">namespace System</div>
+<div class="fsdocs-tip" id="fs2">Multiple items<br>type String =
+  interface IEnumerable&lt;char&gt;
+  interface IEnumerable
+  interface ICloneable
+  interface IComparable
+  interface IComparable&lt;string&gt;
+  interface IConvertible
+  interface IEquatable&lt;string&gt;
+  interface IParsable&lt;string&gt;
+  interface ISpanParsable&lt;string&gt;
+  new: value: nativeptr&lt;char&gt; -&gt; unit + 8 overloads
+  ...<br><em>&lt;summary&gt;Represents text as a sequence of UTF-16 code units.&lt;/summary&gt;</em><br><br>--------------------<br>String(value: nativeptr&lt;char&gt;) : String<br>String(value: char array) : String<br>String(value: ReadOnlySpan&lt;char&gt;) : String<br>String(value: nativeptr&lt;sbyte&gt;) : String<br>String(c: char, count: int) : String<br>String(value: nativeptr&lt;char&gt;, startIndex: int, length: int) : String<br>String(value: char array, startIndex: int, length: int) : String<br>String(value: nativeptr&lt;sbyte&gt;, startIndex: int, length: int) : String<br>String(value: nativeptr&lt;sbyte&gt;, startIndex: int, length: int, enc: Text.Encoding) : String</div>
+<div class="fsdocs-tip" id="fs3">val filter: predicate: (char -&gt; bool) -&gt; str: string -&gt; string</div>
+<div class="fsdocs-tip" id="fs4">[&lt;Struct&gt;]
+type Char =
+  member CompareTo: value: char -&gt; int + 1 overload
+  member Equals: obj: char -&gt; bool + 1 overload
+  member GetHashCode: unit -&gt; int
+  member GetTypeCode: unit -&gt; TypeCode
+  member ToString: unit -&gt; string + 2 overloads
+  static member ConvertFromUtf32: utf32: int -&gt; string
+  static member ConvertToUtf32: highSurrogate: char * lowSurrogate: char -&gt; int + 1 overload
+  static member GetNumericValue: c: char -&gt; float + 1 overload
+  static member GetUnicodeCategory: c: char -&gt; UnicodeCategory + 1 overload
+  static member IsAscii: c: char -&gt; bool
+  ...<br><em>&lt;summary&gt;Represents a character as a UTF-16 code unit.&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs5">Char.IsDigit(c: char) : bool<br>Char.IsDigit(s: string, index: int) : bool</div>
+
+
+              <p></p>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, &#39;994&#39;, 994)" onmouseover="showTip(event, &#39;994&#39;, 994)">
+                <p>
+                  <a id="forall">
+                    </a><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-stringmodule.html#forall">
+                      <code><span>String.forall <span>predicate str</span></span></code>
+                    </a>
+                  
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="994">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>String.forall <span>predicate str</span></span></code>
+                  <br>
+                  <br>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        predicate
+                      </b>
+                      :
+                      <code><span><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-char.html">char</a> -&gt; <a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-bool.html">bool</a></span></code>
+                       - 
+                      The function to test each character of the string.
+                    </span>
+                    <br>
+                    <span>
+                      <b>
+                        str
+                      </b>
+                      :
+                      <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                       - 
+                      The input string.
+                    </span>
+                    <br>
+                  </ul>
+                  <br>
+                  <span>
+                    Returns: 
+                    <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-bool.html">bool</a></code>
+                  </span>
+                  True if all characters return true for the predicate and false otherwise.
+                  <br>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <details open="">
+              <summary>
+                <div class="fsdocs-summary">
+                  <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo(&#39;`cref:M:Microsoft.FSharp.Core.StringModule.ForAll`&#39;)">
+                    <iconify-icon icon="bi:filetype-md" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2H9v-1h3a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM.706 13.189v2.66H0V11.85h.806l1.14 2.596h.026l1.14-2.596h.8v3.999h-.716v-2.66h-.038l-.946 2.159h-.516l-.952-2.16H.706Zm3.919 2.66V11.85h1.459q.609 0 1.005.234t.589.68q.195.445.196 1.075q0 .634-.196 1.084q-.197.451-.595.689q-.396.237-1 .237H4.626Zm1.353-3.354h-.562v2.707h.562q.279 0 .484-.082a.8.8 0 0 0 .334-.252a1.1 1.1 0 0 0 .196-.422q.067-.252.067-.592a2.1 2.1 0 0 0-.117-.753a.9.9 0 0 0-.354-.454q-.238-.152-.61-.152"></path></svg></template></iconify-icon>
+                  </div>
+                  <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo(&#39;&lt;see cref=\&#39;M:Microsoft.FSharp.Core.StringModule.ForAll\&#39;/&gt;&#39;)">
+                    <iconify-icon icon="bi:filetype-xml" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2v-1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM3.527 11.85h-.893l-.823 1.439h-.036L.943 11.85H.012l1.227 1.983L0 15.85h.861l.853-1.415h.035l.85 1.415h.908l-1.254-1.992zm.954 3.999v-2.66h.038l.952 2.159h.516l.946-2.16h.038v2.661h.715V11.85h-.8l-1.14 2.596h-.025L4.58 11.85h-.806v3.999zm4.71-.674h1.696v.674H8.4V11.85h.791z"></path></svg></template></iconify-icon>
+                  </div>
+                  <a href="https://github.com/dotnet/fsharp//tree/master/src/FSharp.Core/string.fs#L184-184" class="fsdocs-source-link" title="Source on GitHub">
+                    <iconify-icon icon="ri:github-fill" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12.001 2c-5.525 0-10 4.475-10 10a9.994 9.994 0 0 0 6.837 9.488c.5.087.688-.213.688-.476c0-.237-.013-1.024-.013-1.862c-2.512.463-3.162-.612-3.362-1.175c-.113-.288-.6-1.175-1.025-1.413c-.35-.187-.85-.65-.013-.662c.788-.013 1.35.725 1.538 1.025c.9 1.512 2.337 1.087 2.912.825c.088-.65.35-1.087.638-1.337c-2.225-.25-4.55-1.113-4.55-4.938c0-1.088.387-1.987 1.025-2.687c-.1-.25-.45-1.275.1-2.65c0 0 .837-.263 2.75 1.024a9.28 9.28 0 0 1 2.5-.337c.85 0 1.7.112 2.5.337c1.913-1.3 2.75-1.024 2.75-1.024c.55 1.375.2 2.4.1 2.65c.637.7 1.025 1.587 1.025 2.687c0 3.838-2.337 4.688-4.562 4.938c.362.312.675.912.675 1.85c0 1.337-.013 2.412-.013 2.75c0 .262.188.574.688.474A10.016 10.016 0 0 0 22 12c0-5.525-4.475-10-10-10"></path></svg></template></iconify-icon>
+                  </a>
+                  <p class="fsdocs-summary">
+                    Tests if all characters in the string satisfy the given predicate.
+                  </p>
+                </div>
+              </summary>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    predicate
+                  </span>
+                  :
+                  <code><span><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-char.html">char</a> -&gt; <a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-bool.html">bool</a></span></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    The function to test each character of the string.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    str
+                  </span>
+                  :
+                  <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    The input string.
+                  </p>
+                </dd>
+              </dl>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-bool.html">bool</a></code>
+                </dt>
+                <dd class="fsdocs-return-docs">
+                  <p>
+                    True if all characters return true for the predicate and false otherwise.
+                  </p>
+                </dd>
+              </dl>
+              <h5 class="fsdocs-example-header">
+                Example
+              </h5>
+              <p class="fsdocs-example" id="forall-1">
+                 Looking for lowercase characters
+ </p><pre class="fssnip highlighted"><code lang="fsharp"> <span class="k">open</span> <span onmouseout="hideTip(event, &#39;fs1&#39;, 1)" onmouseover="showTip(event, &#39;fs1&#39;, 1)" class="id">System</span>
+
+ <span class="s">"all are lower"</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, &#39;fs2&#39;, 2)" onmouseover="showTip(event, &#39;fs2&#39;, 2)" class="m">String</span><span class="pn">.</span><span onmouseout="hideTip(event, &#39;fs3&#39;, 3)" onmouseover="showTip(event, &#39;fs3&#39;, 3)" class="id">forall</span> <span onmouseout="hideTip(event, &#39;fs4&#39;, 4)" onmouseover="showTip(event, &#39;fs4&#39;, 4)" class="vt">Char</span><span class="pn">.</span><span onmouseout="hideTip(event, &#39;fs5&#39;, 5)" onmouseover="showTip(event, &#39;fs5&#39;, 5)" class="id">IsLower</span>  <span class="c">// evaluates false</span>
+
+ <span class="s">"allarelower"</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, &#39;fs2&#39;, 6)" onmouseover="showTip(event, &#39;fs2&#39;, 6)" class="m">String</span><span class="pn">.</span><span onmouseout="hideTip(event, &#39;fs3&#39;, 7)" onmouseover="showTip(event, &#39;fs3&#39;, 7)" class="id">forall</span> <span onmouseout="hideTip(event, &#39;fs4&#39;, 8)" onmouseover="showTip(event, &#39;fs4&#39;, 8)" class="vt">Char</span><span class="pn">.</span><span onmouseout="hideTip(event, &#39;fs5&#39;, 9)" onmouseover="showTip(event, &#39;fs5&#39;, 9)" class="id">IsLower</span>    <span class="c">// evaluates true</span>
+</code></pre>
+<div class="fsdocs-tip" id="fs1">namespace System</div>
+<div class="fsdocs-tip" id="fs2">Multiple items<br>type String =
+  interface IEnumerable&lt;char&gt;
+  interface IEnumerable
+  interface ICloneable
+  interface IComparable
+  interface IComparable&lt;string&gt;
+  interface IConvertible
+  interface IEquatable&lt;string&gt;
+  interface IParsable&lt;string&gt;
+  interface ISpanParsable&lt;string&gt;
+  new: value: nativeptr&lt;char&gt; -&gt; unit + 8 overloads
+  ...<br><em>&lt;summary&gt;Represents text as a sequence of UTF-16 code units.&lt;/summary&gt;</em><br><br>--------------------<br>String(value: nativeptr&lt;char&gt;) : String<br>String(value: char array) : String<br>String(value: ReadOnlySpan&lt;char&gt;) : String<br>String(value: nativeptr&lt;sbyte&gt;) : String<br>String(c: char, count: int) : String<br>String(value: nativeptr&lt;char&gt;, startIndex: int, length: int) : String<br>String(value: char array, startIndex: int, length: int) : String<br>String(value: nativeptr&lt;sbyte&gt;, startIndex: int, length: int) : String<br>String(value: nativeptr&lt;sbyte&gt;, startIndex: int, length: int, enc: Text.Encoding) : String</div>
+<div class="fsdocs-tip" id="fs3">val forall: predicate: (char -&gt; bool) -&gt; str: string -&gt; bool</div>
+<div class="fsdocs-tip" id="fs4">[&lt;Struct&gt;]
+type Char =
+  member CompareTo: value: char -&gt; int + 1 overload
+  member Equals: obj: char -&gt; bool + 1 overload
+  member GetHashCode: unit -&gt; int
+  member GetTypeCode: unit -&gt; TypeCode
+  member ToString: unit -&gt; string + 2 overloads
+  static member ConvertFromUtf32: utf32: int -&gt; string
+  static member ConvertToUtf32: highSurrogate: char * lowSurrogate: char -&gt; int + 1 overload
+  static member GetNumericValue: c: char -&gt; float + 1 overload
+  static member GetUnicodeCategory: c: char -&gt; UnicodeCategory + 1 overload
+  static member IsAscii: c: char -&gt; bool
+  ...<br><em>&lt;summary&gt;Represents a character as a UTF-16 code unit.&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs5">Char.IsLower(c: char) : bool<br>Char.IsLower(s: string, index: int) : bool</div>
+
+
+              <p></p>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, &#39;995&#39;, 995)" onmouseover="showTip(event, &#39;995&#39;, 995)">
+                <p>
+                  <a id="init">
+                    </a><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-stringmodule.html#init">
+                      <code><span>String.init <span>count initializer</span></span></code>
+                    </a>
+                  
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="995">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>String.init <span>count initializer</span></span></code>
+                  <br>
+                  <br>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        count
+                      </b>
+                      :
+                      <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-int.html">int</a></code>
+                       - 
+                      The number of strings to initialize.
+                    </span>
+                    <br>
+                    <span>
+                      <b>
+                        initializer
+                      </b>
+                      :
+                      <code><span><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-int.html">int</a> -&gt; <a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></span></code>
+                       - 
+                      The function to take an index and produce a string to
+ be concatenated with the others.
+                    </span>
+                    <br>
+                  </ul>
+                  <br>
+                  <span>
+                    Returns: 
+                    <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                  </span>
+                  The constructed string.
+                  <br>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <details open="">
+              <summary>
+                <div class="fsdocs-summary">
+                  <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo(&#39;`cref:M:Microsoft.FSharp.Core.StringModule.Initialize`&#39;)">
+                    <iconify-icon icon="bi:filetype-md" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2H9v-1h3a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM.706 13.189v2.66H0V11.85h.806l1.14 2.596h.026l1.14-2.596h.8v3.999h-.716v-2.66h-.038l-.946 2.159h-.516l-.952-2.16H.706Zm3.919 2.66V11.85h1.459q.609 0 1.005.234t.589.68q.195.445.196 1.075q0 .634-.196 1.084q-.197.451-.595.689q-.396.237-1 .237H4.626Zm1.353-3.354h-.562v2.707h.562q.279 0 .484-.082a.8.8 0 0 0 .334-.252a1.1 1.1 0 0 0 .196-.422q.067-.252.067-.592a2.1 2.1 0 0 0-.117-.753a.9.9 0 0 0-.354-.454q-.238-.152-.61-.152"></path></svg></template></iconify-icon>
+                  </div>
+                  <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo(&#39;&lt;see cref=\&#39;M:Microsoft.FSharp.Core.StringModule.Initialize\&#39;/&gt;&#39;)">
+                    <iconify-icon icon="bi:filetype-xml" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2v-1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM3.527 11.85h-.893l-.823 1.439h-.036L.943 11.85H.012l1.227 1.983L0 15.85h.861l.853-1.415h.035l.85 1.415h.908l-1.254-1.992zm.954 3.999v-2.66h.038l.952 2.159h.516l.946-2.16h.038v2.661h.715V11.85h-.8l-1.14 2.596h-.025L4.58 11.85h-.806v3.999zm4.71-.674h1.696v.674H8.4V11.85h.791z"></path></svg></template></iconify-icon>
+                  </div>
+                  <a href="https://github.com/dotnet/fsharp//tree/master/src/FSharp.Core/string.fs#L131-131" class="fsdocs-source-link" title="Source on GitHub">
+                    <iconify-icon icon="ri:github-fill" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12.001 2c-5.525 0-10 4.475-10 10a9.994 9.994 0 0 0 6.837 9.488c.5.087.688-.213.688-.476c0-.237-.013-1.024-.013-1.862c-2.512.463-3.162-.612-3.362-1.175c-.113-.288-.6-1.175-1.025-1.413c-.35-.187-.85-.65-.013-.662c.788-.013 1.35.725 1.538 1.025c.9 1.512 2.337 1.087 2.912.825c.088-.65.35-1.087.638-1.337c-2.225-.25-4.55-1.113-4.55-4.938c0-1.088.387-1.987 1.025-2.687c-.1-.25-.45-1.275.1-2.65c0 0 .837-.263 2.75 1.024a9.28 9.28 0 0 1 2.5-.337c.85 0 1.7.112 2.5.337c1.913-1.3 2.75-1.024 2.75-1.024c.55 1.375.2 2.4.1 2.65c.637.7 1.025 1.587 1.025 2.687c0 3.838-2.337 4.688-4.562 4.938c.362.312.675.912.675 1.85c0 1.337-.013 2.412-.013 2.75c0 .262.188.574.688.474A10.016 10.016 0 0 0 22 12c0-5.525-4.475-10-10-10"></path></svg></template></iconify-icon>
+                  </a>
+                  <p class="fsdocs-summary">
+                    Builds a new string whose characters are the results of applying the function <code>mapping</code>
+ to each index from <code>0</code> to <code>count-1</code> and concatenating the resulting
+ strings.
+                  </p>
+                </div>
+              </summary>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    count
+                  </span>
+                  :
+                  <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-int.html">int</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    The number of strings to initialize.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    initializer
+                  </span>
+                  :
+                  <code><span><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-int.html">int</a> -&gt; <a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></span></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    The function to take an index and produce a string to
+ be concatenated with the others.
+                  </p>
+                </dd>
+              </dl>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                </dt>
+                <dd class="fsdocs-return-docs">
+                  <p>
+                    The constructed string.
+                  </p>
+                </dd>
+              </dl>
+              <table class="fsdocs-exception-list">
+                <tbody><tr>
+                  <td>
+                    <a href="https://learn.microsoft.com/dotnet/api/system.argumentexception">
+                      ArgumentException
+                    </a>
+                  </td>
+                  <td>
+                    Thrown when <code>count</code> is negative.
+                  </td>
+                </tr>
+              </tbody></table>
+              <h5 class="fsdocs-example-header">
+                Example
+              </h5>
+              <p class="fsdocs-example" id="init-1">
+                 Enumerate digits ASCII codes
+ </p><pre class="fssnip highlighted"><code lang="fsharp"> <span onmouseout="hideTip(event, &#39;fs1&#39;, 1)" onmouseover="showTip(event, &#39;fs1&#39;, 1)" class="m">String</span><span class="pn">.</span><span onmouseout="hideTip(event, &#39;fs2&#39;, 2)" onmouseover="showTip(event, &#39;fs2&#39;, 2)" class="id">init</span> <span class="n">10</span> <span class="pn">(</span><span class="k">fun</span> <span onmouseout="hideTip(event, &#39;fs3&#39;, 3)" onmouseover="showTip(event, &#39;fs3&#39;, 3)" class="fn">i</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, &#39;fs4&#39;, 4)" onmouseover="showTip(event, &#39;fs4&#39;, 4)" class="fn">int</span> <span class="s">'0'</span> <span class="o">+</span> <span onmouseout="hideTip(event, &#39;fs3&#39;, 5)" onmouseover="showTip(event, &#39;fs3&#39;, 5)" class="fn">i</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, &#39;fs5&#39;, 6)" onmouseover="showTip(event, &#39;fs5&#39;, 6)" class="fn">sprintf</span> <span class="s">"</span><span class="pf">%d</span><span class="s"> "</span><span class="pn">)</span>
+</code></pre>
+<div class="fsdocs-tip" id="fs1">module String
+
+from Microsoft.FSharp.Core</div>
+<div class="fsdocs-tip" id="fs2">val init: count: int -&gt; initializer: (int -&gt; string) -&gt; string</div>
+<div class="fsdocs-tip" id="fs3">val i: int</div>
+<div class="fsdocs-tip" id="fs4">Multiple items<br>val int: value: 'T -&gt; int (requires member op_Explicit)<br><br>--------------------<br>type int = int32<br><br>--------------------<br>type int&lt;'Measure&gt; =
+  int</div>
+<div class="fsdocs-tip" id="fs5">val sprintf: format: Printf.StringFormat&lt;'T&gt; -&gt; 'T</div>
+
+
+ The sample evaluates to: <code>"48 49 50 51 52 53 54 55 56 57 "</code>
+              <p></p>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, &#39;996&#39;, 996)" onmouseover="showTip(event, &#39;996&#39;, 996)">
+                <p>
+                  <a id="iter">
+                    </a><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-stringmodule.html#iter">
+                      <code><span>String.iter <span>action str</span></span></code>
+                    </a>
+                  
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="996">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>String.iter <span>action str</span></span></code>
+                  <br>
+                  <br>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        action
+                      </b>
+                      :
+                      <code><span><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-char.html">char</a> -&gt; <a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-unit-0.html">unit</a></span></code>
+                       - 
+                      The function to be applied to each character of the string.
+                    </span>
+                    <br>
+                    <span>
+                      <b>
+                        str
+                      </b>
+                      :
+                      <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                       - 
+                      The input string.
+                    </span>
+                    <br>
+                  </ul>
+                  <br>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <details open="">
+              <summary>
+                <div class="fsdocs-summary">
+                  <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo(&#39;`cref:M:Microsoft.FSharp.Core.StringModule.Iterate`&#39;)">
+                    <iconify-icon icon="bi:filetype-md" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2H9v-1h3a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM.706 13.189v2.66H0V11.85h.806l1.14 2.596h.026l1.14-2.596h.8v3.999h-.716v-2.66h-.038l-.946 2.159h-.516l-.952-2.16H.706Zm3.919 2.66V11.85h1.459q.609 0 1.005.234t.589.68q.195.445.196 1.075q0 .634-.196 1.084q-.197.451-.595.689q-.396.237-1 .237H4.626Zm1.353-3.354h-.562v2.707h.562q.279 0 .484-.082a.8.8 0 0 0 .334-.252a1.1 1.1 0 0 0 .196-.422q.067-.252.067-.592a2.1 2.1 0 0 0-.117-.753a.9.9 0 0 0-.354-.454q-.238-.152-.61-.152"></path></svg></template></iconify-icon>
+                  </div>
+                  <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo(&#39;&lt;see cref=\&#39;M:Microsoft.FSharp.Core.StringModule.Iterate\&#39;/&gt;&#39;)">
+                    <iconify-icon icon="bi:filetype-xml" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2v-1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM3.527 11.85h-.893l-.823 1.439h-.036L.943 11.85H.012l1.227 1.983L0 15.85h.861l.853-1.415h.035l.85 1.415h.908l-1.254-1.992zm.954 3.999v-2.66h.038l.952 2.159h.516l.946-2.16h.038v2.661h.715V11.85h-.8l-1.14 2.596h-.025L4.58 11.85h-.806v3.999zm4.71-.674h1.696v.674H8.4V11.85h.791z"></path></svg></template></iconify-icon>
+                  </div>
+                  <a href="https://github.com/dotnet/fsharp//tree/master/src/FSharp.Core/string.fs#L44-44" class="fsdocs-source-link" title="Source on GitHub">
+                    <iconify-icon icon="ri:github-fill" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12.001 2c-5.525 0-10 4.475-10 10a9.994 9.994 0 0 0 6.837 9.488c.5.087.688-.213.688-.476c0-.237-.013-1.024-.013-1.862c-2.512.463-3.162-.612-3.362-1.175c-.113-.288-.6-1.175-1.025-1.413c-.35-.187-.85-.65-.013-.662c.788-.013 1.35.725 1.538 1.025c.9 1.512 2.337 1.087 2.912.825c.088-.65.35-1.087.638-1.337c-2.225-.25-4.55-1.113-4.55-4.938c0-1.088.387-1.987 1.025-2.687c-.1-.25-.45-1.275.1-2.65c0 0 .837-.263 2.75 1.024a9.28 9.28 0 0 1 2.5-.337c.85 0 1.7.112 2.5.337c1.913-1.3 2.75-1.024 2.75-1.024c.55 1.375.2 2.4.1 2.65c.637.7 1.025 1.587 1.025 2.687c0 3.838-2.337 4.688-4.562 4.938c.362.312.675.912.675 1.85c0 1.337-.013 2.412-.013 2.75c0 .262.188.574.688.474A10.016 10.016 0 0 0 22 12c0-5.525-4.475-10-10-10"></path></svg></template></iconify-icon>
+                  </a>
+                  <p class="fsdocs-summary">
+                    Applies the function <code>action</code> to each character in the string.
+                  </p>
+                </div>
+              </summary>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    action
+                  </span>
+                  :
+                  <code><span><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-char.html">char</a> -&gt; <a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-unit-0.html">unit</a></span></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    The function to be applied to each character of the string.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    str
+                  </span>
+                  :
+                  <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    The input string.
+                  </p>
+                </dd>
+              </dl>
+              <h5 class="fsdocs-example-header">
+                Example
+              </h5>
+              <p class="fsdocs-example" id="iter-1">
+                 Printing the ASCII code for each characater in the string
+ </p><pre class="fssnip highlighted"><code lang="fsharp"> <span class="k">let</span> <span onmouseout="hideTip(event, &#39;fs1&#39;, 1)" onmouseover="showTip(event, &#39;fs1&#39;, 1)" class="id">input</span> <span class="o">=</span> <span class="s">"Hello"</span>
+ <span onmouseout="hideTip(event, &#39;fs1&#39;, 2)" onmouseover="showTip(event, &#39;fs1&#39;, 2)" class="id">input</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, &#39;fs2&#39;, 3)" onmouseover="showTip(event, &#39;fs2&#39;, 3)" class="m">String</span><span class="pn">.</span><span onmouseout="hideTip(event, &#39;fs3&#39;, 4)" onmouseover="showTip(event, &#39;fs3&#39;, 4)" class="id">iter</span> <span class="pn">(</span><span class="k">fun</span> <span onmouseout="hideTip(event, &#39;fs4&#39;, 5)" onmouseover="showTip(event, &#39;fs4&#39;, 5)" class="fn">c</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, &#39;fs5&#39;, 6)" onmouseover="showTip(event, &#39;fs5&#39;, 6)" class="fn">printfn</span> <span class="s">"</span><span class="pf">%c</span><span class="s"> </span><span class="pf">%d</span><span class="s">"</span> <span onmouseout="hideTip(event, &#39;fs4&#39;, 7)" onmouseover="showTip(event, &#39;fs4&#39;, 7)" class="fn">c</span> <span class="pn">(</span><span onmouseout="hideTip(event, &#39;fs6&#39;, 8)" onmouseover="showTip(event, &#39;fs6&#39;, 8)" class="fn">int</span> <span onmouseout="hideTip(event, &#39;fs4&#39;, 9)" onmouseover="showTip(event, &#39;fs4&#39;, 9)" class="fn">c</span><span class="pn">)</span><span class="pn">)</span>
+</code></pre>
+<div class="fsdocs-tip" id="fs1">val input: string</div>
+<div class="fsdocs-tip" id="fs2">module String
+
+from Microsoft.FSharp.Core</div>
+<div class="fsdocs-tip" id="fs3">val iter: action: (char -&gt; unit) -&gt; str: string -&gt; unit</div>
+<div class="fsdocs-tip" id="fs4">val c: char</div>
+<div class="fsdocs-tip" id="fs5">val printfn: format: Printf.TextWriterFormat&lt;'T&gt; -&gt; 'T</div>
+<div class="fsdocs-tip" id="fs6">Multiple items<br>val int: value: 'T -&gt; int (requires member op_Explicit)<br><br>--------------------<br>type int = int32<br><br>--------------------<br>type int&lt;'Measure&gt; =
+  int</div>
+
+
+ The sample evaluates as <code>unit</code>, but prints:
+ <pre class="fssnip highlighted"><code lang="fsharp"> <span class="id">H</span> <span class="n">72</span>
+ <span class="id">e</span> <span class="n">101</span>
+ <span class="id">l</span> <span class="n">108</span>
+ <span class="id">l</span> <span class="n">108</span>
+ <span class="id">o</span> <span class="n">111</span>
+</code></pre>
+
+
+              <p></p>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, &#39;997&#39;, 997)" onmouseover="showTip(event, &#39;997&#39;, 997)">
+                <p>
+                  <a id="iteri">
+                    </a><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-stringmodule.html#iteri">
+                      <code><span>String.iteri <span>action str</span></span></code>
+                    </a>
+                  
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="997">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>String.iteri <span>action str</span></span></code>
+                  <br>
+                  <br>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        action
+                      </b>
+                      :
+                      <code><span><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-int.html">int</a> -&gt; <a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-char.html">char</a> -&gt; <a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-unit-0.html">unit</a></span></code>
+                       - 
+                      The function to apply to each character and index of the string.
+                    </span>
+                    <br>
+                    <span>
+                      <b>
+                        str
+                      </b>
+                      :
+                      <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                       - 
+                      The input string.
+                    </span>
+                    <br>
+                  </ul>
+                  <br>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <details open="">
+              <summary>
+                <div class="fsdocs-summary">
+                  <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo(&#39;`cref:M:Microsoft.FSharp.Core.StringModule.IterateIndexed`&#39;)">
+                    <iconify-icon icon="bi:filetype-md" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2H9v-1h3a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM.706 13.189v2.66H0V11.85h.806l1.14 2.596h.026l1.14-2.596h.8v3.999h-.716v-2.66h-.038l-.946 2.159h-.516l-.952-2.16H.706Zm3.919 2.66V11.85h1.459q.609 0 1.005.234t.589.68q.195.445.196 1.075q0 .634-.196 1.084q-.197.451-.595.689q-.396.237-1 .237H4.626Zm1.353-3.354h-.562v2.707h.562q.279 0 .484-.082a.8.8 0 0 0 .334-.252a1.1 1.1 0 0 0 .196-.422q.067-.252.067-.592a2.1 2.1 0 0 0-.117-.753a.9.9 0 0 0-.354-.454q-.238-.152-.61-.152"></path></svg></template></iconify-icon>
+                  </div>
+                  <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo(&#39;&lt;see cref=\&#39;M:Microsoft.FSharp.Core.StringModule.IterateIndexed\&#39;/&gt;&#39;)">
+                    <iconify-icon icon="bi:filetype-xml" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2v-1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM3.527 11.85h-.893l-.823 1.439h-.036L.943 11.85H.012l1.227 1.983L0 15.85h.861l.853-1.415h.035l.85 1.415h.908l-1.254-1.992zm.954 3.999v-2.66h.038l.952 2.159h.516l.946-2.16h.038v2.661h.715V11.85h-.8l-1.14 2.596h-.025L4.58 11.85h-.806v3.999zm4.71-.674h1.696v.674H8.4V11.85h.791z"></path></svg></template></iconify-icon>
+                  </div>
+                  <a href="https://github.com/dotnet/fsharp//tree/master/src/FSharp.Core/string.fs#L50-50" class="fsdocs-source-link" title="Source on GitHub">
+                    <iconify-icon icon="ri:github-fill" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12.001 2c-5.525 0-10 4.475-10 10a9.994 9.994 0 0 0 6.837 9.488c.5.087.688-.213.688-.476c0-.237-.013-1.024-.013-1.862c-2.512.463-3.162-.612-3.362-1.175c-.113-.288-.6-1.175-1.025-1.413c-.35-.187-.85-.65-.013-.662c.788-.013 1.35.725 1.538 1.025c.9 1.512 2.337 1.087 2.912.825c.088-.65.35-1.087.638-1.337c-2.225-.25-4.55-1.113-4.55-4.938c0-1.088.387-1.987 1.025-2.687c-.1-.25-.45-1.275.1-2.65c0 0 .837-.263 2.75 1.024a9.28 9.28 0 0 1 2.5-.337c.85 0 1.7.112 2.5.337c1.913-1.3 2.75-1.024 2.75-1.024c.55 1.375.2 2.4.1 2.65c.637.7 1.025 1.587 1.025 2.687c0 3.838-2.337 4.688-4.562 4.938c.362.312.675.912.675 1.85c0 1.337-.013 2.412-.013 2.75c0 .262.188.574.688.474A10.016 10.016 0 0 0 22 12c0-5.525-4.475-10-10-10"></path></svg></template></iconify-icon>
+                  </a>
+                  <p class="fsdocs-summary">
+                    Applies the function <code>action</code> to the index of each character in the string and the
+ character itself.
+                  </p>
+                </div>
+              </summary>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    action
+                  </span>
+                  :
+                  <code><span><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-int.html">int</a> -&gt; <a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-char.html">char</a> -&gt; <a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-unit-0.html">unit</a></span></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    The function to apply to each character and index of the string.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    str
+                  </span>
+                  :
+                  <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    The input string.
+                  </p>
+                </dd>
+              </dl>
+              <h5 class="fsdocs-example-header">
+                Example
+              </h5>
+              <p class="fsdocs-example" id="iteri-1">
+                 Numbering the characters and printing the associated ASCII code
+ for each characater in the input string
+ </p><pre class="fssnip highlighted"><code lang="fsharp"> <span class="k">let</span> <span onmouseout="hideTip(event, &#39;fs1&#39;, 1)" onmouseover="showTip(event, &#39;fs1&#39;, 1)" class="id">input</span> <span class="o">=</span> <span class="s">"Hello"</span>
+ <span onmouseout="hideTip(event, &#39;fs1&#39;, 2)" onmouseover="showTip(event, &#39;fs1&#39;, 2)" class="id">input</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, &#39;fs2&#39;, 3)" onmouseover="showTip(event, &#39;fs2&#39;, 3)" class="m">String</span><span class="pn">.</span><span onmouseout="hideTip(event, &#39;fs3&#39;, 4)" onmouseover="showTip(event, &#39;fs3&#39;, 4)" class="id">iteri</span> <span class="pn">(</span><span class="k">fun</span> <span onmouseout="hideTip(event, &#39;fs4&#39;, 5)" onmouseover="showTip(event, &#39;fs4&#39;, 5)" class="fn">i</span> <span onmouseout="hideTip(event, &#39;fs5&#39;, 6)" onmouseover="showTip(event, &#39;fs5&#39;, 6)" class="fn">c</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, &#39;fs6&#39;, 7)" onmouseover="showTip(event, &#39;fs6&#39;, 7)" class="fn">printfn</span> <span class="s">"</span><span class="pf">%d</span><span class="s">. </span><span class="pf">%c</span><span class="s"> </span><span class="pf">%d</span><span class="s">"</span> <span class="pn">(</span><span onmouseout="hideTip(event, &#39;fs4&#39;, 8)" onmouseover="showTip(event, &#39;fs4&#39;, 8)" class="fn">i</span> <span class="o">+</span> <span class="n">1</span><span class="pn">)</span> <span onmouseout="hideTip(event, &#39;fs5&#39;, 9)" onmouseover="showTip(event, &#39;fs5&#39;, 9)" class="fn">c</span> <span class="pn">(</span><span onmouseout="hideTip(event, &#39;fs7&#39;, 10)" onmouseover="showTip(event, &#39;fs7&#39;, 10)" class="fn">int</span> <span onmouseout="hideTip(event, &#39;fs5&#39;, 11)" onmouseover="showTip(event, &#39;fs5&#39;, 11)" class="fn">c</span><span class="pn">)</span><span class="pn">)</span>
+</code></pre>
+<div class="fsdocs-tip" id="fs1">val input: string</div>
+<div class="fsdocs-tip" id="fs2">module String
+
+from Microsoft.FSharp.Core</div>
+<div class="fsdocs-tip" id="fs3">val iteri: action: (int -&gt; char -&gt; unit) -&gt; str: string -&gt; unit</div>
+<div class="fsdocs-tip" id="fs4">val i: int</div>
+<div class="fsdocs-tip" id="fs5">val c: char</div>
+<div class="fsdocs-tip" id="fs6">val printfn: format: Printf.TextWriterFormat&lt;'T&gt; -&gt; 'T</div>
+<div class="fsdocs-tip" id="fs7">Multiple items<br>val int: value: 'T -&gt; int (requires member op_Explicit)<br><br>--------------------<br>type int = int32<br><br>--------------------<br>type int&lt;'Measure&gt; =
+  int</div>
+
+
+ The sample evaluates as <code>unit</code>, but prints:
+ <pre class="fssnip highlighted"><code lang="fsharp"> <span class="n">1.</span> <span class="id">H</span> <span class="n">72</span>
+ <span class="n">2.</span> <span class="id">e</span> <span class="n">101</span>
+ <span class="n">3.</span> <span class="id">l</span> <span class="n">108</span>
+ <span class="n">4.</span> <span class="id">l</span> <span class="n">108</span>
+ <span class="n">5.</span> <span class="id">o</span> <span class="n">111</span>
+</code></pre>
+
+
+              <p></p>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, &#39;998&#39;, 998)" onmouseover="showTip(event, &#39;998&#39;, 998)">
+                <p>
+                  <a id="length">
+                    </a><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-stringmodule.html#length">
+                      <code><span>String.length <span>str</span></span></code>
+                    </a>
+                  
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="998">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>String.length <span>str</span></span></code>
+                  <br>
+                  <br>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        str
+                      </b>
+                      :
+                      <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                       - 
+                      The input string.
+                    </span>
+                    <br>
+                  </ul>
+                  <br>
+                  <span>
+                    Returns: 
+                    <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-int.html">int</a></code>
+                  </span>
+                  The number of characters in the string.
+                  <br>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <details open="">
+              <summary>
+                <div class="fsdocs-summary">
+                  <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo(&#39;`cref:M:Microsoft.FSharp.Core.StringModule.Length`&#39;)">
+                    <iconify-icon icon="bi:filetype-md" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2H9v-1h3a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM.706 13.189v2.66H0V11.85h.806l1.14 2.596h.026l1.14-2.596h.8v3.999h-.716v-2.66h-.038l-.946 2.159h-.516l-.952-2.16H.706Zm3.919 2.66V11.85h1.459q.609 0 1.005.234t.589.68q.195.445.196 1.075q0 .634-.196 1.084q-.197.451-.595.689q-.396.237-1 .237H4.626Zm1.353-3.354h-.562v2.707h.562q.279 0 .484-.082a.8.8 0 0 0 .334-.252a1.1 1.1 0 0 0 .196-.422q.067-.252.067-.592a2.1 2.1 0 0 0-.117-.753a.9.9 0 0 0-.354-.454q-.238-.152-.61-.152"></path></svg></template></iconify-icon>
+                  </div>
+                  <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo(&#39;&lt;see cref=\&#39;M:Microsoft.FSharp.Core.StringModule.Length\&#39;/&gt;&#39;)">
+                    <iconify-icon icon="bi:filetype-xml" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2v-1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM3.527 11.85h-.893l-.823 1.439h-.036L.943 11.85H.012l1.227 1.983L0 15.85h.861l.853-1.415h.035l.85 1.415h.908l-1.254-1.992zm.954 3.999v-2.66h.038l.952 2.159h.516l.946-2.16h.038v2.661h.715V11.85h-.8l-1.14 2.596h-.025L4.58 11.85h-.806v3.999zm4.71-.674h1.696v.674H8.4V11.85h.791z"></path></svg></template></iconify-icon>
+                  </div>
+                  <a href="https://github.com/dotnet/fsharp//tree/master/src/FSharp.Core/string.fs#L23-23" class="fsdocs-source-link" title="Source on GitHub">
+                    <iconify-icon icon="ri:github-fill" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12.001 2c-5.525 0-10 4.475-10 10a9.994 9.994 0 0 0 6.837 9.488c.5.087.688-.213.688-.476c0-.237-.013-1.024-.013-1.862c-2.512.463-3.162-.612-3.362-1.175c-.113-.288-.6-1.175-1.025-1.413c-.35-.187-.85-.65-.013-.662c.788-.013 1.35.725 1.538 1.025c.9 1.512 2.337 1.087 2.912.825c.088-.65.35-1.087.638-1.337c-2.225-.25-4.55-1.113-4.55-4.938c0-1.088.387-1.987 1.025-2.687c-.1-.25-.45-1.275.1-2.65c0 0 .837-.263 2.75 1.024a9.28 9.28 0 0 1 2.5-.337c.85 0 1.7.112 2.5.337c1.913-1.3 2.75-1.024 2.75-1.024c.55 1.375.2 2.4.1 2.65c.637.7 1.025 1.587 1.025 2.687c0 3.838-2.337 4.688-4.562 4.938c.362.312.675.912.675 1.85c0 1.337-.013 2.412-.013 2.75c0 .262.188.574.688.474A10.016 10.016 0 0 0 22 12c0-5.525-4.475-10-10-10"></path></svg></template></iconify-icon>
+                  </a>
+                  <p class="fsdocs-summary">
+                    Returns the length of the string.
+                  </p>
+                </div>
+              </summary>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    str
+                  </span>
+                  :
+                  <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    The input string.
+                  </p>
+                </dd>
+              </dl>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-int.html">int</a></code>
+                </dt>
+                <dd class="fsdocs-return-docs">
+                  <p>
+                    The number of characters in the string.
+                  </p>
+                </dd>
+              </dl>
+              <h5 class="fsdocs-example-header">
+                Example
+              </h5>
+              <p class="fsdocs-example" id="length-1">
+                 Getting the length of different strings
+ </p><pre class="fssnip highlighted"><code lang="fsharp"> <span onmouseout="hideTip(event, &#39;fs1&#39;, 1)" onmouseover="showTip(event, &#39;fs1&#39;, 1)" class="m">String</span><span class="pn">.</span><span onmouseout="hideTip(event, &#39;fs2&#39;, 2)" onmouseover="showTip(event, &#39;fs2&#39;, 2)" class="id">length</span> <span class="k">null</span>   <span class="c">// evaluates 0</span>
+ <span onmouseout="hideTip(event, &#39;fs1&#39;, 3)" onmouseover="showTip(event, &#39;fs1&#39;, 3)" class="m">String</span><span class="pn">.</span><span onmouseout="hideTip(event, &#39;fs2&#39;, 4)" onmouseover="showTip(event, &#39;fs2&#39;, 4)" class="id">length</span> <span class="s">""</span>     <span class="c">// evaluates 0</span>
+ <span onmouseout="hideTip(event, &#39;fs1&#39;, 5)" onmouseover="showTip(event, &#39;fs1&#39;, 5)" class="m">String</span><span class="pn">.</span><span onmouseout="hideTip(event, &#39;fs2&#39;, 6)" onmouseover="showTip(event, &#39;fs2&#39;, 6)" class="id">length</span> <span class="s">"123"</span>  <span class="c">// evaluates 3</span>
+</code></pre>
+<div class="fsdocs-tip" id="fs1">module String
+
+from Microsoft.FSharp.Core</div>
+<div class="fsdocs-tip" id="fs2">val length: str: string -&gt; int</div>
+
+
+              <p></p>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, &#39;999&#39;, 999)" onmouseover="showTip(event, &#39;999&#39;, 999)">
+                <p>
+                  <a id="map">
+                    </a><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-stringmodule.html#map">
+                      <code><span>String.map <span>mapping str</span></span></code>
+                    </a>
+                  
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="999">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>String.map <span>mapping str</span></span></code>
+                  <br>
+                  <br>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        mapping
+                      </b>
+                      :
+                      <code><span><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-char.html">char</a> -&gt; <a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-char.html">char</a></span></code>
+                       - 
+                      The function to apply to the characters of the string.
+                    </span>
+                    <br>
+                    <span>
+                      <b>
+                        str
+                      </b>
+                      :
+                      <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                       - 
+                      The input string.
+                    </span>
+                    <br>
+                  </ul>
+                  <br>
+                  <span>
+                    Returns: 
+                    <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                  </span>
+                  The resulting string.
+                  <br>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <details open="">
+              <summary>
+                <div class="fsdocs-summary">
+                  <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo(&#39;`cref:M:Microsoft.FSharp.Core.StringModule.Map`&#39;)">
+                    <iconify-icon icon="bi:filetype-md" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2H9v-1h3a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM.706 13.189v2.66H0V11.85h.806l1.14 2.596h.026l1.14-2.596h.8v3.999h-.716v-2.66h-.038l-.946 2.159h-.516l-.952-2.16H.706Zm3.919 2.66V11.85h1.459q.609 0 1.005.234t.589.68q.195.445.196 1.075q0 .634-.196 1.084q-.197.451-.595.689q-.396.237-1 .237H4.626Zm1.353-3.354h-.562v2.707h.562q.279 0 .484-.082a.8.8 0 0 0 .334-.252a1.1 1.1 0 0 0 .196-.422q.067-.252.067-.592a2.1 2.1 0 0 0-.117-.753a.9.9 0 0 0-.354-.454q-.238-.152-.61-.152"></path></svg></template></iconify-icon>
+                  </div>
+                  <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo(&#39;&lt;see cref=\&#39;M:Microsoft.FSharp.Core.StringModule.Map\&#39;/&gt;&#39;)">
+                    <iconify-icon icon="bi:filetype-xml" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2v-1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM3.527 11.85h-.893l-.823 1.439h-.036L.943 11.85H.012l1.227 1.983L0 15.85h.861l.853-1.415h.035l.85 1.415h.908l-1.254-1.992zm.954 3.999v-2.66h.038l.952 2.159h.516l.946-2.16h.038v2.661h.715V11.85h-.8l-1.14 2.596h-.025L4.58 11.85h-.806v3.999zm4.71-.674h1.696v.674H8.4V11.85h.791z"></path></svg></template></iconify-icon>
+                  </div>
+                  <a href="https://github.com/dotnet/fsharp//tree/master/src/FSharp.Core/string.fs#L58-58" class="fsdocs-source-link" title="Source on GitHub">
+                    <iconify-icon icon="ri:github-fill" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12.001 2c-5.525 0-10 4.475-10 10a9.994 9.994 0 0 0 6.837 9.488c.5.087.688-.213.688-.476c0-.237-.013-1.024-.013-1.862c-2.512.463-3.162-.612-3.362-1.175c-.113-.288-.6-1.175-1.025-1.413c-.35-.187-.85-.65-.013-.662c.788-.013 1.35.725 1.538 1.025c.9 1.512 2.337 1.087 2.912.825c.088-.65.35-1.087.638-1.337c-2.225-.25-4.55-1.113-4.55-4.938c0-1.088.387-1.987 1.025-2.687c-.1-.25-.45-1.275.1-2.65c0 0 .837-.263 2.75 1.024a9.28 9.28 0 0 1 2.5-.337c.85 0 1.7.112 2.5.337c1.913-1.3 2.75-1.024 2.75-1.024c.55 1.375.2 2.4.1 2.65c.637.7 1.025 1.587 1.025 2.687c0 3.838-2.337 4.688-4.562 4.938c.362.312.675.912.675 1.85c0 1.337-.013 2.412-.013 2.75c0 .262.188.574.688.474A10.016 10.016 0 0 0 22 12c0-5.525-4.475-10-10-10"></path></svg></template></iconify-icon>
+                  </a>
+                  <p class="fsdocs-summary">
+                    Builds a new string whose characters are the results of applying the function <code>mapping</code>
+ to each of the characters of the input string.
+                  </p>
+                </div>
+              </summary>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    mapping
+                  </span>
+                  :
+                  <code><span><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-char.html">char</a> -&gt; <a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-char.html">char</a></span></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    The function to apply to the characters of the string.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    str
+                  </span>
+                  :
+                  <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    The input string.
+                  </p>
+                </dd>
+              </dl>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                </dt>
+                <dd class="fsdocs-return-docs">
+                  <p>
+                    The resulting string.
+                  </p>
+                </dd>
+              </dl>
+              <h5 class="fsdocs-example-header">
+                Example
+              </h5>
+              <p class="fsdocs-example" id="map-1">
+                 Changing case to upper for all characters in the input string
+ </p><pre class="fssnip highlighted"><code lang="fsharp"> <span class="k">open</span> <span onmouseout="hideTip(event, &#39;fs1&#39;, 1)" onmouseover="showTip(event, &#39;fs1&#39;, 1)" class="id">System</span>
+
+ <span class="k">let</span> <span onmouseout="hideTip(event, &#39;fs2&#39;, 2)" onmouseover="showTip(event, &#39;fs2&#39;, 2)" class="id">input</span> <span class="o">=</span> <span class="s">"Hello there!"</span>
+
+ <span onmouseout="hideTip(event, &#39;fs2&#39;, 3)" onmouseover="showTip(event, &#39;fs2&#39;, 3)" class="id">input</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, &#39;fs3&#39;, 4)" onmouseover="showTip(event, &#39;fs3&#39;, 4)" class="m">String</span><span class="pn">.</span><span onmouseout="hideTip(event, &#39;fs4&#39;, 5)" onmouseover="showTip(event, &#39;fs4&#39;, 5)" class="id">map</span> <span onmouseout="hideTip(event, &#39;fs5&#39;, 6)" onmouseover="showTip(event, &#39;fs5&#39;, 6)" class="vt">Char</span><span class="pn">.</span><span onmouseout="hideTip(event, &#39;fs6&#39;, 7)" onmouseover="showTip(event, &#39;fs6&#39;, 7)" class="id">ToUpper</span>  <span class="c">// evaluates "HELLO THERE!"</span>
+</code></pre>
+<div class="fsdocs-tip" id="fs1">namespace System</div>
+<div class="fsdocs-tip" id="fs2">val input: string</div>
+<div class="fsdocs-tip" id="fs3">Multiple items<br>type String =
+  interface IEnumerable&lt;char&gt;
+  interface IEnumerable
+  interface ICloneable
+  interface IComparable
+  interface IComparable&lt;string&gt;
+  interface IConvertible
+  interface IEquatable&lt;string&gt;
+  interface IParsable&lt;string&gt;
+  interface ISpanParsable&lt;string&gt;
+  new: value: nativeptr&lt;char&gt; -&gt; unit + 8 overloads
+  ...<br><em>&lt;summary&gt;Represents text as a sequence of UTF-16 code units.&lt;/summary&gt;</em><br><br>--------------------<br>String(value: nativeptr&lt;char&gt;) : String<br>String(value: char array) : String<br>String(value: ReadOnlySpan&lt;char&gt;) : String<br>String(value: nativeptr&lt;sbyte&gt;) : String<br>String(c: char, count: int) : String<br>String(value: nativeptr&lt;char&gt;, startIndex: int, length: int) : String<br>String(value: char array, startIndex: int, length: int) : String<br>String(value: nativeptr&lt;sbyte&gt;, startIndex: int, length: int) : String<br>String(value: nativeptr&lt;sbyte&gt;, startIndex: int, length: int, enc: Text.Encoding) : String</div>
+<div class="fsdocs-tip" id="fs4">val map: mapping: (char -&gt; char) -&gt; str: string -&gt; string</div>
+<div class="fsdocs-tip" id="fs5">[&lt;Struct&gt;]
+type Char =
+  member CompareTo: value: char -&gt; int + 1 overload
+  member Equals: obj: char -&gt; bool + 1 overload
+  member GetHashCode: unit -&gt; int
+  member GetTypeCode: unit -&gt; TypeCode
+  member ToString: unit -&gt; string + 2 overloads
+  static member ConvertFromUtf32: utf32: int -&gt; string
+  static member ConvertToUtf32: highSurrogate: char * lowSurrogate: char -&gt; int + 1 overload
+  static member GetNumericValue: c: char -&gt; float + 1 overload
+  static member GetUnicodeCategory: c: char -&gt; UnicodeCategory + 1 overload
+  static member IsAscii: c: char -&gt; bool
+  ...<br><em>&lt;summary&gt;Represents a character as a UTF-16 code unit.&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs6">Char.ToUpper(c: char) : char<br>Char.ToUpper(c: char, culture: Globalization.CultureInfo) : char</div>
+
+
+              <p></p>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, &#39;1000&#39;, 1000)" onmouseover="showTip(event, &#39;1000&#39;, 1000)">
+                <p>
+                  <a id="mapi">
+                    </a><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-stringmodule.html#mapi">
+                      <code><span>String.mapi <span>mapping str</span></span></code>
+                    </a>
+                  
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="1000" style="position: absolute; display: none; left: 653px; top: 145px; max-width: 990px;">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>String.mapi <span>mapping str</span></span></code>
+                  <br>
+                  <br>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        mapping
+                      </b>
+                      :
+                      <code><span><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-int.html">int</a> -&gt; <a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-char.html">char</a> -&gt; <a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-char.html">char</a></span></code>
+                       - 
+                      The function to apply to each character and index of the string.
+                    </span>
+                    <br>
+                    <span>
+                      <b>
+                        str
+                      </b>
+                      :
+                      <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                       - 
+                      The input string.
+                    </span>
+                    <br>
+                  </ul>
+                  <br>
+                  <span>
+                    Returns: 
+                    <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                  </span>
+                  The resulting string.
+                  <br>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <details open="">
+              <summary>
+                <div class="fsdocs-summary">
+                  <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo(&#39;`cref:M:Microsoft.FSharp.Core.StringModule.MapIndexed`&#39;)">
+                    <iconify-icon icon="bi:filetype-md" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2H9v-1h3a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM.706 13.189v2.66H0V11.85h.806l1.14 2.596h.026l1.14-2.596h.8v3.999h-.716v-2.66h-.038l-.946 2.159h-.516l-.952-2.16H.706Zm3.919 2.66V11.85h1.459q.609 0 1.005.234t.589.68q.195.445.196 1.075q0 .634-.196 1.084q-.197.451-.595.689q-.396.237-1 .237H4.626Zm1.353-3.354h-.562v2.707h.562q.279 0 .484-.082a.8.8 0 0 0 .334-.252a1.1 1.1 0 0 0 .196-.422q.067-.252.067-.592a2.1 2.1 0 0 0-.117-.753a.9.9 0 0 0-.354-.454q-.238-.152-.61-.152"></path></svg></template></iconify-icon>
+                  </div>
+                  <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo(&#39;&lt;see cref=\&#39;M:Microsoft.FSharp.Core.StringModule.MapIndexed\&#39;/&gt;&#39;)">
+                    <iconify-icon icon="bi:filetype-xml" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2v-1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM3.527 11.85h-.893l-.823 1.439h-.036L.943 11.85H.012l1.227 1.983L0 15.85h.861l.853-1.415h.035l.85 1.415h.908l-1.254-1.992zm.954 3.999v-2.66h.038l.952 2.159h.516l.946-2.16h.038v2.661h.715V11.85h-.8l-1.14 2.596h-.025L4.58 11.85h-.806v3.999zm4.71-.674h1.696v.674H8.4V11.85h.791z"></path></svg></template></iconify-icon>
+                  </div>
+                  <a href="https://github.com/dotnet/fsharp//tree/master/src/FSharp.Core/string.fs#L72-72" class="fsdocs-source-link" title="Source on GitHub">
+                    <iconify-icon icon="ri:github-fill" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12.001 2c-5.525 0-10 4.475-10 10a9.994 9.994 0 0 0 6.837 9.488c.5.087.688-.213.688-.476c0-.237-.013-1.024-.013-1.862c-2.512.463-3.162-.612-3.362-1.175c-.113-.288-.6-1.175-1.025-1.413c-.35-.187-.85-.65-.013-.662c.788-.013 1.35.725 1.538 1.025c.9 1.512 2.337 1.087 2.912.825c.088-.65.35-1.087.638-1.337c-2.225-.25-4.55-1.113-4.55-4.938c0-1.088.387-1.987 1.025-2.687c-.1-.25-.45-1.275.1-2.65c0 0 .837-.263 2.75 1.024a9.28 9.28 0 0 1 2.5-.337c.85 0 1.7.112 2.5.337c1.913-1.3 2.75-1.024 2.75-1.024c.55 1.375.2 2.4.1 2.65c.637.7 1.025 1.587 1.025 2.687c0 3.838-2.337 4.688-4.562 4.938c.362.312.675.912.675 1.85c0 1.337-.013 2.412-.013 2.75c0 .262.188.574.688.474A10.016 10.016 0 0 0 22 12c0-5.525-4.475-10-10-10"></path></svg></template></iconify-icon>
+                  </a>
+                  <p class="fsdocs-summary">
+                    Builds a new string whose characters are the results of applying the function <code>mapping</code>
+ to each character and index of the input string.
+                  </p>
+                </div>
+              </summary>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    mapping
+                  </span>
+                  :
+                  <code><span><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-int.html">int</a> -&gt; <a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-char.html">char</a> -&gt; <a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-char.html">char</a></span></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    The function to apply to each character and index of the string.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    str
+                  </span>
+                  :
+                  <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    The input string.
+                  </p>
+                </dd>
+              </dl>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                </dt>
+                <dd class="fsdocs-return-docs">
+                  <p>
+                    The resulting string.
+                  </p>
+                </dd>
+              </dl>
+              <h5 class="fsdocs-example-header">
+                Example
+              </h5>
+              <p class="fsdocs-example" id="mapi-1">
+                </p><pre class="fssnip highlighted"><code lang="fsharp"> <span class="id">input</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, &#39;fs1&#39;, 1)" onmouseover="showTip(event, &#39;fs1&#39;, 1)" class="m">String</span><span class="pn">.</span><span onmouseout="hideTip(event, &#39;fs2&#39;, 2)" onmouseover="showTip(event, &#39;fs2&#39;, 2)" class="id">mapi</span> <span class="pn">(</span><span class="k">fun</span> <span onmouseout="hideTip(event, &#39;fs3&#39;, 3)" onmouseover="showTip(event, &#39;fs3&#39;, 3)" class="fn">i</span> <span onmouseout="hideTip(event, &#39;fs4&#39;, 4)" onmouseover="showTip(event, &#39;fs4&#39;, 4)" class="fn">c</span> <span class="k">-&gt;</span> <span class="pn">(</span><span onmouseout="hideTip(event, &#39;fs3&#39;, 5)" onmouseover="showTip(event, &#39;fs3&#39;, 5)" class="fn">i</span><span class="pn">,</span> <span onmouseout="hideTip(event, &#39;fs4&#39;, 6)" onmouseover="showTip(event, &#39;fs4&#39;, 6)" class="fn">c</span><span class="pn">)</span><span class="pn">)</span>
+</code></pre>
+<div class="fsdocs-tip" id="fs1">module String
+
+from Microsoft.FSharp.Core</div>
+<div class="fsdocs-tip" id="fs2">val mapi: mapping: (int -&gt; char -&gt; char) -&gt; str: string -&gt; string</div>
+<div class="fsdocs-tip" id="fs3">val i: int</div>
+<div class="fsdocs-tip" id="fs4">val c: char</div>
+
+
+ Evaluates to <code>[ (0, 'O'); (1, 'K'); (2, '!') ]</code>.
+ 
+              <p></p>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, &#39;1001&#39;, 1001)" onmouseover="showTip(event, &#39;1001&#39;, 1001)">
+                <p>
+                  <a id="replicate">
+                    </a><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-stringmodule.html#replicate">
+                      <code><span>String.replicate <span>count str</span></span></code>
+                    </a>
+                  
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="1001">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>String.replicate <span>count str</span></span></code>
+                  <br>
+                  <br>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        count
+                      </b>
+                      :
+                      <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-int.html">int</a></code>
+                       - 
+                      The number of copies of the input string will be copied.
+                    </span>
+                    <br>
+                    <span>
+                      <b>
+                        str
+                      </b>
+                      :
+                      <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                       - 
+                      The input string.
+                    </span>
+                    <br>
+                  </ul>
+                  <br>
+                  <span>
+                    Returns: 
+                    <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                  </span>
+                  The concatenated string.
+                  <br>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <details open="">
+              <summary>
+                <div class="fsdocs-summary">
+                  <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo(&#39;`cref:M:Microsoft.FSharp.Core.StringModule.Replicate`&#39;)">
+                    <iconify-icon icon="bi:filetype-md" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2H9v-1h3a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM.706 13.189v2.66H0V11.85h.806l1.14 2.596h.026l1.14-2.596h.8v3.999h-.716v-2.66h-.038l-.946 2.159h-.516l-.952-2.16H.706Zm3.919 2.66V11.85h1.459q.609 0 1.005.234t.589.68q.195.445.196 1.075q0 .634-.196 1.084q-.197.451-.595.689q-.396.237-1 .237H4.626Zm1.353-3.354h-.562v2.707h.562q.279 0 .484-.082a.8.8 0 0 0 .334-.252a1.1 1.1 0 0 0 .196-.422q.067-.252.067-.592a2.1 2.1 0 0 0-.117-.753a.9.9 0 0 0-.354-.454q-.238-.152-.61-.152"></path></svg></template></iconify-icon>
+                  </div>
+                  <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo(&#39;&lt;see cref=\&#39;M:Microsoft.FSharp.Core.StringModule.Replicate\&#39;/&gt;&#39;)">
+                    <iconify-icon icon="bi:filetype-xml" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2v-1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM3.527 11.85h-.893l-.823 1.439h-.036L.943 11.85H.012l1.227 1.983L0 15.85h.861l.853-1.415h.035l.85 1.415h.908l-1.254-1.992zm.954 3.999v-2.66h.038l.952 2.159h.516l.946-2.16h.038v2.661h.715V11.85h-.8l-1.14 2.596h-.025L4.58 11.85h-.806v3.999zm4.71-.674h1.696v.674H8.4V11.85h.791z"></path></svg></template></iconify-icon>
+                  </div>
+                  <a href="https://github.com/dotnet/fsharp//tree/master/src/FSharp.Core/string.fs#L143-143" class="fsdocs-source-link" title="Source on GitHub">
+                    <iconify-icon icon="ri:github-fill" height="24" width="24"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12.001 2c-5.525 0-10 4.475-10 10a9.994 9.994 0 0 0 6.837 9.488c.5.087.688-.213.688-.476c0-.237-.013-1.024-.013-1.862c-2.512.463-3.162-.612-3.362-1.175c-.113-.288-.6-1.175-1.025-1.413c-.35-.187-.85-.65-.013-.662c.788-.013 1.35.725 1.538 1.025c.9 1.512 2.337 1.087 2.912.825c.088-.65.35-1.087.638-1.337c-2.225-.25-4.55-1.113-4.55-4.938c0-1.088.387-1.987 1.025-2.687c-.1-.25-.45-1.275.1-2.65c0 0 .837-.263 2.75 1.024a9.28 9.28 0 0 1 2.5-.337c.85 0 1.7.112 2.5.337c1.913-1.3 2.75-1.024 2.75-1.024c.55 1.375.2 2.4.1 2.65c.637.7 1.025 1.587 1.025 2.687c0 3.838-2.337 4.688-4.562 4.938c.362.312.675.912.675 1.85c0 1.337-.013 2.412-.013 2.75c0 .262.188.574.688.474A10.016 10.016 0 0 0 22 12c0-5.525-4.475-10-10-10"></path></svg></template></iconify-icon>
+                  </a>
+                  <p class="fsdocs-summary">
+                    Returns a string by concatenating <code>count</code> instances of <code>str</code>.
+                  </p>
+                </div>
+              </summary>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    count
+                  </span>
+                  :
+                  <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-int.html">int</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    The number of copies of the input string will be copied.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    str
+                  </span>
+                  :
+                  <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    The input string.
+                  </p>
+                </dd>
+              </dl>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code><a href="https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-string.html">string</a></code>
+                </dt>
+                <dd class="fsdocs-return-docs">
+                  <p>
+                    The concatenated string.
+                  </p>
+                </dd>
+              </dl>
+              <table class="fsdocs-exception-list">
+                <tbody><tr>
+                  <td>
+                    <a href="https://learn.microsoft.com/dotnet/api/system.argumentexception">
+                      ArgumentException
+                    </a>
+                  </td>
+                  <td>
+                    Thrown when <code>count</code> is negative.
+                  </td>
+                </tr>
+              </tbody></table>
+              <h5 class="fsdocs-example-header">
+                Example
+              </h5>
+              <p class="fsdocs-example" id="replicate-1">
+                </p><pre class="fssnip highlighted"><code lang="fsharp"> <span class="s">"Do it!"</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, &#39;fs1&#39;, 1)" onmouseover="showTip(event, &#39;fs1&#39;, 1)" class="m">String</span><span class="pn">.</span><span onmouseout="hideTip(event, &#39;fs2&#39;, 2)" onmouseover="showTip(event, &#39;fs2&#39;, 2)" class="id">replicate</span> <span class="n">3</span>
+</code></pre>
+<div class="fsdocs-tip" id="fs1">module String
+
+from Microsoft.FSharp.Core</div>
+<div class="fsdocs-tip" id="fs2">val replicate: count: int -&gt; str: string -&gt; string</div>
+
+
+ Evaluates to <code>"Do it!Do it!Do it!"</code>.
+ 
+              <p></p>
+            </details>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+        
+    </div>
+</main>
+<aside id="fsdocs-page-menu">
+    <p id="on-this-page">On this page</p>
+    <div class="empty"></div>
+</aside>
+<dialog>
+    <input type="search" placeholder="Search docs">
+    <div class="results">
+        <ul></ul>
+        <p class="empty">Type something to start searching.</p>
+    </div>
+</dialog>
+<script type="module" src="./String (FSharp.Core) _ FSharp.Core_files/fsdocs-tips.js"></script>
+<script type="module" src="./String (FSharp.Core) _ FSharp.Core_files/fsdocs-theme-toggle.js"></script>
+<script type="module" src="./String (FSharp.Core) _ FSharp.Core_files/fsdocs-theme.js"></script>
+<script type="module" src="./String (FSharp.Core) _ FSharp.Core_files/fsdocs-search.js"></script>
+
+
+</body></html>
