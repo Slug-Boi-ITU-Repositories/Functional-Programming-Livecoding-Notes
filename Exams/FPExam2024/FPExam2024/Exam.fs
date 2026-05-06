@@ -143,17 +143,45 @@
 (* 3: Caesar Ciphers *)
 
 (* Question 3.1 *)
-    
-    let encrypt _ = failwith "not imlpemented"
+
+    let rec rec_wrapper cha = 
+        if int cha > int 'z' 
+        then char (int cha - 26) 
+            |> rec_wrapper else if int cha < int 'a' 
+            then char (int cha + 26) |> rec_wrapper else cha
+
+    let encrypt_char (offset: int) c = 
+        match c with
+        | ' ' -> " "
+        | c -> char ((int c) + offset) |> rec_wrapper |> string
+
+    let encrypt str offset = String.collect (encrypt_char offset) str
     
 (* Question 3.2 *)
-    let decrypt _ = failwith "not imlpemented"
+    let decrypt str offset = encrypt str (offset * -1)
     
 (* Question 3.3 *)
-    let decode _ = failwith "not imlpemented"
+    let rec rec_decode plainText encoded key =
+        match key with
+        | 26 -> None
+        | n -> if encrypt plainText n = encoded 
+                then Some n 
+                else rec_decode plainText encoded (key + 1)
+
+    let decode plainText encoded = rec_decode plainText encoded 0
     
+    let rec build_str lst = 
+        match lst with
+        | [] -> ""
+        | x :: xs -> build_str xs + (" " + x)
 (* Question 3.4 *)
-    let parEncrypt _ = failwith "not imlpemented"
+    let parEncrypt (str: string) (offset: int) =
+     str.Split ' ' |> 
+        (Array.fold (fun acc str -> async { return encrypt str offset  } :: acc ) []) 
+        |> Async.Parallel 
+        |> Async.RunSynchronously
+        |> Array.toList 
+        |> build_str
     
 (* Question 3.5 *)
         
