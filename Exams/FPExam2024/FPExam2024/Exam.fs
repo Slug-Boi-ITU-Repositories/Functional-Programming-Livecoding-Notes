@@ -85,38 +85,45 @@
     
     Q: What are the types of functions foo, bar, and baz?
 
-    A: <Your answer goes here>
-
+    A: foo : char -> int
+       bar : string -> list<char>
+       baz : list<int> -> int
 
     Q: What do the function foo, bar, and baz do.
        Focus on what they do rather than how they do it.
 
-    A: <Your answer goes here>
+    A: foo takes a char and returns the corresponding integer value.
+       bar takes a string and returns it as a char array
+       baz takes a list of integers and returns it as an integer with the digits reversed
     
     Q: What would be appropriate names for functions 
        foo, bar, and baz?
 
-    A: <Your answer goes here>
+    A: foo : charToInt
+       bar : stringToArray
+       baz : intsToReversedInt
     
     Q: The function foo only behaves reasonably if certain 
        constraint(s) are met on its argument. 
        What is/are these constraints?
         
-    A: <Your answer goes here>
+    A: It makes sense to have the constraint that inputs to foo must be a character representing a base-10 digit ('0'–'9')
     
     Q: The function baz only behaves reasonably if certain 
        constraint(s) are met on its argument. 
        What is/are these constraints?
         
-    A: <Your answer goes here>    *)
+    A:  All integers in the input should be non-negative     *)
     
 (* Question 2.2 *)
     
-    let stringToInt _ = failwith "not implemented"
+    let stringToInt = bar >> List.map foo >> List.rev >> baz
 
 (* Question 2.3 *)
     
-    let baz2 _ = failwith "not implemented"
+    let baz2 xs = List.foldBack(fun x acc -> x + 10 * acc) xs 0
+    
+    let baz2Alt xs = List.fold(fun acc  a ->  a + 10 * acc) 0 (List.rev xs)
     
 (* Question 2.4 *)
 
@@ -132,13 +139,31 @@
        You do not have to step through the foo-function. You are allowed to evaluate 
        that function immediately.
 
-    A: <Your answer goes here>
+    A: baz [1; 2; 3] -->
+       1 + 10 * baz [2; 3] -->
+       1 + 10 * (2 + 10 * baz [3]) -->
+       1 + 10 * (2 + 10 * (3 + 10 * baz []))
+       1 + 10 * (2 + 10 * (3 + 10 * 0))
+       1 + 10 * (2 + 10 * 3)
+       1 + 10 * (2 + 30)
+       1 + 10 * 32
+       1 + 320
+       321
+
+       baz is not tail recursive as we have 1 + 10 * baz [2; 3] for instance. 
+       Until the recursive call is evaluated there is no tail to multiply 10 with and add to 1, instead the unresolved equation is 
+       stored on the stack, which can eventually overflow if the lists are big enough.
 
     *)
     
 (* Question 2.5 *)
 
-    let bazTail _ = failwith "not implemented"
+    let bazTail xs = 
+        let rec aux xs c =
+            match xs with
+            | [] -> c 0
+            | x::xs -> aux xs (fun r -> c(x + 10 * r))
+        aux xs id 
         
 (* 3: Caesar Ciphers *)
 
