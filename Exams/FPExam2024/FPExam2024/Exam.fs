@@ -169,18 +169,23 @@
 
 (* Question 3.1 *)
 
-    let rec rec_wrapper cha = 
-        if int cha > int 'z' 
-        then char (int cha - 26) 
-            |> rec_wrapper else if int cha < int 'a' 
-            then char (int cha + 26) |> rec_wrapper else cha
+    let rec check_int i = 
+        if i > int 'z' then 
+            i - 26 |> check_int 
+        else if i < int 'a' then 
+            i + 26 |> check_int 
+        else i
 
-    let encrypt_char (offset: int) c = 
+    let _encryptchar offset (c: char) = 
+        ((int c - int 'a' + offset) % (1 + int 'z' - int 'a')) + (int 'a') |> char
+
+    let encryptchar offset c = 
         match c with
         | ' ' -> " "
-        | c -> char ((int c) + offset) |> rec_wrapper |> string
+        | c ->  int c + offset |> check_int |> char |> string
 
-    let encrypt str offset = String.collect (encrypt_char offset) str
+
+    let encrypt code offset = String.collect (encryptchar offset) code
     
 (* Question 3.2 *)
     let decrypt str offset = encrypt str (offset * -1)
@@ -195,11 +200,14 @@
 
     let decode plainText encoded = rec_decode plainText encoded 0
     
+
+(* Question 3.4 *)
     let rec build_str lst = 
         match lst with
         | [] -> ""
+        | [s] -> s
         | x :: xs -> build_str xs + (" " + x)
-(* Question 3.4 *)
+
     let parEncrypt (str: string) (offset: int) =
      str.Split ' ' |> 
         (Array.fold (fun acc str -> async { return encrypt str offset  } :: acc ) []) 
@@ -219,8 +227,7 @@
     let pcharorspace = pvalidchar <|> pspace
 
     let parseEncrypt (offset : int) : Parser<string> = 
-        many pcharorspace |>> fun s -> List.foldBack (fun c acc -> encrypt (string c) offset + acc) s ""
-
+        many pcharorspace |>> (fun lst -> List.foldBack (fun c acc -> (encrypt (string c) offset) + acc) lst "")
 (* 4: Letterboxes *)
     
 (* Question 4.1 *)
@@ -235,12 +242,16 @@
         match lst with
         | [] -> [msg]
         | x :: xs -> x :: add_msg msg xs
+
     let post (sender : string) (msg : string) (Inbox mb : letterbox) : letterbox = 
-        let lst = Map.tryFind sender mb |> Option.defaultValue [] |> add_msg msg
+        let lst = Map.tryFind sender mb 
+                  |> Option.defaultValue [] 
+                  |> add_msg msg
+
         Inbox (Map.add sender lst mb)
 
 
-    let read (sender : string) (Inbox mb : letterbox) : string*letterbox option = 
+    let read (sender : string) (Inbox mb : letterbox) : (string*letterbox) option = 
         mb.TryFind sender 
         |> Option.bind 
             (fun lst -> 
@@ -290,4 +301,10 @@
         | Read of string
     type log = MType list
     
-    let trace _ = failwith "not implemented"
+    let rec trace log = 
+        match log with 
+        | [] -> ret []
+        | x :: xs -> 
+            match x with
+            | Post (sender,message) -> post2 sender message >>>= trace xs
+            | Read sender -> read2 sender >>= fun message -> trace xs >>= fun log -> ret (message :: log)
