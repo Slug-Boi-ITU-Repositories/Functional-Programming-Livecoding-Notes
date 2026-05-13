@@ -187,21 +187,43 @@
         
     open JParsec.TextParser
 
-    let parseEncrypt _ = failwith "not imlpemented"
+    let pvalidchar = satisfy (fun c -> int c >= int 'a' && int c <= int 'z')
+
+    let pspace = pchar ' '
+
+    let pcharorspace = pvalidchar <|> pspace
+
+    let parseEncrypt (offset : int) : Parser<string> = 
+        many pcharorspace |>> fun s -> List.foldBack (fun c acc -> encrypt (string c) offset + acc) s ""
 
 (* 4: Letterboxes *)
     
 (* Question 4.1 *)
     
-    type letterbox = unit // Replace with your type
+    type letterbox = Inbox of Map<string,string list>
     
-    let empty _ = failwith "not imlpemented"
+    let empty () = Inbox Map.empty
 
 (* Question 4.2 *)
 
-    let post _ = failwith "not imlpemented"
-    
-    let read _ = failwith "not imlpemented"
+    let rec add_msg msg lst =
+        match lst with
+        | [] -> [msg]
+        | x :: xs -> x :: add_msg msg xs
+    let post (sender : string) (msg : string) (Inbox mb : letterbox) : letterbox = 
+        let lst = Map.tryFind sender mb |> Option.defaultValue [] |> add_msg msg
+        Inbox (Map.add sender lst mb)
+
+
+    let read (sender : string) (Inbox mb : letterbox) : string*letterbox option = 
+        mb.TryFind sender 
+        |> Option.bind 
+            (fun lst -> 
+                match lst with
+                | [] -> None
+                | x :: xs -> Some (x, Inbox (Map.add sender xs mb))
+            )
+ 
 
     
 (* Question 4.3 *)
@@ -220,9 +242,12 @@
     let (>>>=) x y = x >>= (fun _ -> y)  
       
     let evalSM (SM f) = f (empty ())
-    
-    let post2 _ = failwith "not implemented"
-    let read2 _ = failwith "not implemented"
+
+  
+    let post2 (sender : string) (msg : string) : StateMonad<unit> = 
+        SM (fun mb -> Some ((), post sender msg mb))
+    let read2 (sender : string) = 
+        SM (fun mb -> read sender mb)
 
 (* Question 4.4 *)
 
